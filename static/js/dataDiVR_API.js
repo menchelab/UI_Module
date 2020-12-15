@@ -103,7 +103,7 @@ ue.interface.randomWalkPy = function (data) {
         data: payload,
         dataType: "json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         success: function (response) {
 
@@ -170,7 +170,7 @@ function nodePanelRequest(data){
         url: path,
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -255,7 +255,7 @@ function juliaRw(data) {
         data: payload,
         dataType: "json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         success: function (response) {
             rwJuliaResponse = response;
@@ -326,7 +326,7 @@ function shortestPath() {
         url: path,
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -486,7 +486,7 @@ function GetDbFileNames1() {
         contentType: "application/json",
         //data: payload,
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -545,7 +545,7 @@ function GetDbNodeList1(name, channel) {
         url: path,
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -593,7 +593,7 @@ function GetDbLinkList1() {
         contentType: "application/json",
 
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -622,7 +622,7 @@ function GetDbLabelList1(name, channel) {
         url: path,
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -654,7 +654,7 @@ function GetDbSearchTerms(name, namespace) {
                 url: path,
                 contentType: "application/json",
                 headers: {
-                    "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+                    "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
                 },
                 dataType: "json",
                 success: function (response) {
@@ -693,7 +693,7 @@ function GetDbSearchTerms(name, namespace) {
                 url: path,
                 contentType: "application/json",
                 headers: {
-                    "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+                    "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
                 },
                 dataType: "json",
                 success: function (response) {
@@ -786,7 +786,7 @@ function GetDbSelections() {
         url: path,
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -824,7 +824,7 @@ function SimpleSearch(id) {
 
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -871,7 +871,7 @@ function SaveSelectionDB(data) {
         data: payload,
         dataType: "json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         success: function (response) {
 
@@ -894,7 +894,7 @@ function LoadSelectionDB(id) {
         url: path,
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -947,7 +947,7 @@ function GetNodesForAttributes(instring) {
 
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -1010,7 +1010,7 @@ function ReLayoutSubSet(data) {
         data: payload,
         dataType: "json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         success: function (response) {
 
@@ -1035,7 +1035,7 @@ function LoadPanelData() {
         url: path,
         contentType: "application/json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         dataType: "json",
         success: function (response) {
@@ -1069,7 +1069,7 @@ function SavePanelData(data) {
         data: payload,
         dataType: "json",
         headers: {
-            "Authorization": "Basic " + btoa('steveballmer' + ":" + 'code peaceful canon shorter')
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         success: function (response) {
 
