@@ -1,0 +1,53 @@
+<!-- PUT YOUR UI ELEMENTS IN HERE AND DEFINE MAPPINGS IN main_UI.js -->
+
+<!-- HTML STARTS HERE -->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/SwagStyle.css') }}">
+                <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+                    <!-- <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" -->
+                    <!-- rel = "stylesheet"> -->
+                    <!-- <link href="jquery-ui.css" rel="stylesheet"> -->
+                    <script src="https://d3js.org/d3.v4.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/dataDiVR_API.js') }}"></script>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/nodepanel_UI.js') }}"></script>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/d3ForceGraph.js') }}"></script>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/d3barchartNodes.js') }}"></script>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/d3barchart.js') }}"></script>
+                    <!-- add d3 for fun and profit (and for the randomwalk tab) -->
+
+                </head>
+                <style>
+
+
+                </style>
+                <body>
+                    <div id="tabsNode" class="disable-select">
+                        <ul>
+                            <li><a href="#P1-tabs-1"><img draggable="false" onmousedown="return false" height='40' width='40'
+                                            src="{{ url_for('static', filename='img/active_nodeInfo.png') }}" /></a></li>
+                        </ul>
+                        <p>
+                        </p>
+                        <div id="P1-tabs-1">
+                            <div class="swagLabelSmall"   style="width: 100%">INSPECTOR
+                                <div class="swagLabel" id = "iSym" >SYM</div>
+                                <div class="swagSmall" id = "iName">///</div>
+                                <div class="swagSmall" id = "iDeg" >///</div>
+                                <p></p>
+                            </div>
+                            <div id = "itisbox" style = "color:#7500fa;">TISSUE</div>
+                            <div  id="BarChartbox"  style="max-height:300px;overflow-y:auto;">
+                                <svg id="NodeBarChart" width="500" height="500" ></svg>
+                                <div id = "idisbox" >DISEASES</div>
+                                <div id = "ifunbox" >FUNCTIONS</div>
+                            </div>
+                        </body>

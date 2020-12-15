@@ -1,0 +1,133 @@
+<!-- PUT YOUR UI ELEMENTS IN HERE AND DEFINE MAPPINGS IN main_UI.js -->
+
+<!-- HTML STARTS HERE -->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/SwagStyle.css') }}">
+                <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+                    <!-- <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" -->
+                    <!-- rel = "stylesheet"> -->
+                    <!-- <link href="jquery-ui.css" rel="stylesheet"> -->
+                    <script src="https://d3js.org/d3.v4.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/dataDiVR_API.js') }}"></script>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/sidepanel_UI.js') }}"></script>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/d3ForceGraph.js') }}"></script>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/d3barchart.js') }}"></script>
+                    <!-- add d3 for fun and profit (and for the randomwalk tab) -->
+
+                </head>
+                <style>
+
+
+                </style>
+                <body>
+                    <div id="tabsSide" class="disable-select">
+                        <ul>
+                            <li><a href="#P1-tabs-1"><img draggable="false" onmousedown="return false" height='40' width='40'
+                                            src="{{ url_for('static', filename='img/active_patient.png') }}" /></a></li>
+                            <li><a href="#P1-tabs-2"><img draggable="false" onmousedown="return false" height='40' width='40'
+                                            src="{{ url_for('static', filename='img/active_pub.png') }}" /></a></li>
+                            <li><a href="#P1-tabs-3"><img draggable="false" onmousedown="return false" height='40' width='40'    
+                                            src="{{ url_for('static', filename='img/active_bars.png') }}" /></a></li>
+                            <li><a href="#P1-tabs-4"><img draggable="false" onmousedown="return false" height='40' width='40'    
+                                            src="{{ url_for('static', filename='img/active_pin.png') }}" /></a></li>
+                            <li><a href="#P1-tabs-5"><img draggable="false" onmousedown="return false" height='40' width='40'    
+                                            src="{{ url_for('static', filename='img/active_net.png') }}" /></a></li>                
+                        </ul>
+                        <p>
+
+                        </p>
+                        <div id="P1-tabs-1">
+                            
+                            <p></p>
+                             
+                             
+                             <div style="width: 100%; display: table;">
+                                <div style="display: table-row">
+                                    <div style="width: 300px; display: table-cell;">
+                                         <div class="swagLabel">PATIENT DATA</div>
+                                    </div>
+                                    <div style="display: table-cell;">
+                                             <button id="savePanel">SAVE</button>
+                                    </div>
+                                </div>
+                            </div>
+                                                     
+                            <div class="swagLabelSmall", id="pname"> MAX MUSTERMANN</div>
+                            <div class="swagLabelSmall", id="page"> 26, male </div>
+                            <div class="swagLabelSmall", id="pcomments"> ... </div>
+                            <p>
+                            </p>
+                            <div class="swagLabel", > PHENOTYPES 
+                                <button name="pphenclear" id="pphenclear">X</button>
+                                <button name="pphensearch" id="pphensearch">GO!</button>
+                            </div>
+                            <div class = "keys" , id="pphenobox">
+                            </div>
+                            <p>
+                            </p>
+                        </p>
+                        <div class="swagLabelSmall", id="pvariantbox" , style= "color:#fc5a03"> PATIENT VARIANTS</div>
+                        <!-- <select name="pselections" id="pselections"></select> -->
+
+
+
+
+
+
+                    </div>
+
+                    <div id="P1-tabs-2">
+
+                        <div class="swagLabel" id="pseeds" style= "color:#fcba03"> SEEDS GENES:
+                            <button name="p_add_to_seedbox" id="p_add_to_seedbox">ADD</button>
+                            <button name="p_clear_seedbox" id="p_clear_seedbox">CLEAR</button>
+                        </div>
+                        <div  id="seedbox"  style="max-height:300px;overflow-y:auto;"></div>
+
+                        <p>
+
+                        </div>
+
+                        <div id="P1-tabs-3">
+                            <div class="swagLabel" id="prw_section"> RANDOM WALK
+                                <button name="p_rw_start" id="p_rw_start">GO!</button>
+
+                                <div id="pslider-restart_probability"></div>
+                                <div class="swagLabelSmall" id="prestart_label"> RESTART</div>
+
+                            </div>
+                            <img id = "pspinner_load" src="{{ url_for('static', filename='img/processing.gif') }}" />
+                            <div id="barchartdisplay">...</div>
+                            <svg id="barChart" width="512" height="512"></svg>
+                        </div>
+
+                        <div id="P1-tabs-4">
+
+                            <div class="swagLabel"> MY GENES
+                                <button name="addMyGene" id="addMyGene">+</button>
+                            </div>
+                        </p></p>
+                    <div  id="MyNodesbox"  style="max-height:300px;overflow-y:auto;"></div>
+
+                </div>
+
+                <div id="P1-tabs-5">
+                    <div class="swagLabel"style= "color:#fcba03"> DISEASE NEIGHBORHOOD</div>
+                    <div id="graphDisplay">... </div>
+                    <svg id="forceLayout" width="700" height="512"></svg>
+
+
+                </div>
+
+
+            </div>
+        </body>

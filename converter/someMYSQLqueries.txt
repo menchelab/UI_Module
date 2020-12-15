@@ -1,0 +1,4 @@
+select * FROM ppi.layouts Limit 1;
+
+/// change all nodealphas
+update ppi.layouts set a_val = 100 where id > 0;
