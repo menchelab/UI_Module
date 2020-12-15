@@ -1,10 +1,9 @@
 ///////GLOBAL VARS vvvvvvv
-var dbprefix = 'http://asimov.westeurope.cloudapp.azure.com:8887';
-//var dbprefix = "http://40.113.100.218:8887/";
-//var dbprefix = ' http://127.0.0.1:1337';
+
 var p1 = -1;
 var p2 = -1;
 var rwJuliaResponse = "";
+
 //create the global ue4(...) helper function
 "object" != typeof ue || "object" != typeof ue.interface ? ("object" != typeof ue && (ue = {}), ue.interface = {}, ue.interface.broadcast = function (e, t) {
     if ("string" == typeof e) {
