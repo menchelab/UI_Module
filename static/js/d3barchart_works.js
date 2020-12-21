@@ -14,14 +14,14 @@ d3.selectAll("#GSEABarChart > *").remove();
      height = +svg111.attr("height"); */
     
 var data = input;
-console.log(data.length);
+
 //var data = [{"id":"Bob","r":33},{"id":"Robin","r":12},{"id":"Anne","r":41},{"id":"Mark","r":16},{"id":"Joe","r":59},{"id":"Eve","r":38},{"id":"Karen","r":21},{"id":"Kirsty","r":25},{"id":"Chris","r":30},{"id":"Lisa","r":47},{"id":"Tom","r":5},{"id":"Stacy","r":20},{"id":"Charles","r":13},{"id":"Mary","r":29}];
 
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 500 - margin.left - margin.right,
     height = data.length * 20 - margin.top - margin.bottom;
-
+console.log(height);
 // set the ranges
 var y = d3.scaleBand()
           .range([height, 0])
@@ -33,7 +33,7 @@ var x = d3.scaleLinear()
 // append the svg object to the body of the page
 // append a 'r' element to 'svg'
 // moves the 'r' element to the top left margin
-var svg = d3.select("#GSEABarChart").append("svg")
+var svg = d3.select("#GSEABarChart")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -73,7 +73,7 @@ var svg = d3.select("#GSEABarChart").append("svg")
       .selectAll("text")
       .classed('disable-select', true)
       .attr("y", 0)
-      .attr("x", -20)
+      .attr("x", 5)
       .attr("dy", "0.35em")
       .style("font-size",20)
       .style("text-anchor", "start")
