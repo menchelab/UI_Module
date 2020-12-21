@@ -39,6 +39,10 @@ ue.interface.getSelection = function (data) {
     case "reLayout":
         ReLayoutSubSet(data);
         break;
+    case "GSEA":
+        GSEASubSet(data);
+        
+        break;
 
     }
     // i
@@ -991,7 +995,7 @@ function GetNodesForAttributes(instring) {
 
 function ReLayoutSubSet(data) {
 
-    console.log(data);
+    //console.log(data);
     var dummydata = {
         "node_ids": []
     };
@@ -1015,6 +1019,47 @@ function ReLayoutSubSet(data) {
 
             logger(response);
             ue4("reLayout", response);
+        },
+        error: function (err) {
+            logger(err);
+
+        }
+    });
+    //event.preventDefault();
+}
+
+
+ 
+
+function GSEASubSet(data) {
+
+    //console.log(data);
+    var dummydata = {
+        "node_ids": [],
+        "annotation":"ALL"
+    };
+    dummydata.node_ids = data.node_ids;
+    dummydata.annotation = data.selection_name;
+    //console.log(JSON.stringify(data.node_ids));
+    payload = JSON.stringify(dummydata);
+    //console.log(payload);
+    //
+    path = dbprefix + "/api/" + thisNamespace.namespace + "/node/gsea";
+    $.ajax({
+
+        type: "POST",
+        url: path,
+        contentType: "application/json",
+        data: payload,
+        dataType: "json",
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        success: function (response) {
+
+            logger(response);
+            //ue4("reLayout", response);
+            drawGSEABarChart(response);
         },
         error: function (err) {
             logger(err);

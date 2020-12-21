@@ -471,10 +471,76 @@ $(document).ready(function () {
                 "route": "reLayout"
             };
             ue4("GetSelection", out);
-            mm
+            
 
         });
     });
+
+    //start_GSEA
+
+    $(function () {
+        $("#GSEAAttributes").selectmenu();
+        $('#GSEAAttributes').append($('<option>', {
+                value: "ALL",
+                text: "ALL",
+            }));
+        $('#GSEAAttributes').append($('<option>', {
+                value: "DISEASE",
+                text: "DISEASE",
+            }));
+        $('#GSEAAttributes').append($('<option>', {
+                value: "PATHWAY",
+                text: "PATHWAY",
+            }));
+        $('#GSEAAttributes').append($('<option>', {
+                value: "molecular_function",
+                text: "molecular_function",
+            }));
+        $('#GSEAAttributes').append($('<option>', {
+                value: "cellular_component",
+                text: "cellular_component",
+            }));
+        $('#GSEAAttributes').append($('<option>', {
+                value: "biological_process",
+                text: "biological_process",
+            }));
+        $('#GSEAAttributes').append($('<option>', {
+                value: "TISSUE",
+                text: "TISSUE",
+            }));
+        $('#GSEAAttributes').append($('<option>', {
+                value: "HUMAN_PHENOTYPE",
+                text: "HUMAN_PHENOTYPE",
+            }));
+        $('#GSEAAttributes').append($('<option>', {
+                value: "OMIM_DISEASE",
+                text: "OMIM_DISEASE",
+            }));
+        $('#GSEAAttributes').val("ALL"); //SET ACTIVE SLOT
+        $("#GSEAAttributes").selectmenu("refresh");
+    });
+
+    $('#GSEAAttributes').on('selectmenuselect', function () {
+     
+    });
+
+
+    $(function () {
+        $("#start_GSEA").button();
+        $("#start_GSEA").click(function (event) {
+            event.preventDefault();
+            
+            var name = $('#GSEAAttributes').find(':selected').text();
+
+            var out = {
+                "content": name,
+                "route": "GSEA"
+            };
+            ue4("GetSelection", out);
+            
+        });
+    });
+
 
     $(function () {
         $("#exitIsolate").button();

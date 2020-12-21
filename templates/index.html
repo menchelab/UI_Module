@@ -21,6 +21,7 @@
                     <script type="text/javascript" src="{{ url_for('static', filename='js/main_UI.js') }}"></script>
                     <script type="text/javascript" src="{{ url_for('static', filename='js/d3ForceGraph.js') }}"></script>
                     <script type="text/javascript" src="{{ url_for('static', filename='js/d3barchart.js') }}"></script>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/d3barchart_works.js') }}"></script>
                     <script type="text/javascript" src="{{ url_for('static', filename='js/jszip.min.js') }}"></script>
                     <script type="text/javascript" src="{{ url_for('static', filename='js/kendo.all.min.js') }}"></script>
 
@@ -187,6 +188,17 @@
 
                                     <!-- <svg width="512" height="600"></svg> -->
                                     <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/d3ForceGraph.js') }}"></script> -->
+                                </div>
+
+                                <div class="swagLabel" id="GSEASection" >GSEA
+                                    <p> </p>
+                                    <p>
+                                        <select name="GSEAAttributes" id="GSEAAttributes"></select>
+                                        <button id="start_GSEA">START</button>  
+                                    </p>
+                                    <div  id="BarChartbox"  style="max-height:300px;overflow-y:auto;">
+                                        <svg id="GSEABarChart" width="500" height="500" ></svg>
+                                    </div>             
                                 </div>
                             </div>
                             <div id="tabs-7">
