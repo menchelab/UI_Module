@@ -18,7 +18,7 @@ var data = input;
 //var data = [{"id":"Bob","r":33},{"id":"Robin","r":12},{"id":"Anne","r":41},{"id":"Mark","r":16},{"id":"Joe","r":59},{"id":"Eve","r":38},{"id":"Karen","r":21},{"id":"Kirsty","r":25},{"id":"Chris","r":30},{"id":"Lisa","r":47},{"id":"Tom","r":5},{"id":"Stacy","r":20},{"id":"Charles","r":13},{"id":"Mary","r":29}];
 
 // set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 20, right: 20, bottom: 30, left: 0},
     width = 500 - margin.left - margin.right,
     height = data.length * 20 - margin.top - margin.bottom;
 console.log(height);
