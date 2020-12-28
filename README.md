@@ -18,7 +18,8 @@ The **DataDiVR** platform consists of 4 Modules:
  We are running the platform on an MSI gaming laptop with the following specs:
  - CPU: i7 - 7820HK
  - RAM: 16 GB
- - GPU: NVIDEA 1070 TI
+ - GPU: NVIDIA 1070 TI
+ - OS: WINDOWS 10
 
  and a VR HEADSET - we tested the following:
  - HTC VIVE VR Headset + controllers
@@ -70,6 +71,24 @@ you are good to go, if there are errors you will need to install dependencies.
 - edit DataDiVR/VRnet/viveNet/Content/data/UiServerConfig.txt and change the address to the one where your UIServer is, here http://127.0.0.1:5000/ 
 - run viveNet.exe
 
+### Tutorial 1: UIServer
+
+#### **The UIServer is running in the browser of your local machine and can only SEND get and post requests TO the DataServer.**
+
+Think of the UIServer as the frontend of a website and the DataServer as it's backend. 
+A User clicks on a button on the frontend, this causes the UI Server to send a post request to the backend (the DataServer), await it's response and finally display the result as text or as a graph.
+
+The DataServer can only RESPOND to those requests, meaning the DataServer can never send something to the frontend without being asked.
+Every communication is Initiated by the UIServer.
+
+Now here is what's special about the UIServer:
+
+#### **It can also SEND api function calls to the VR Module AND**
+
+#### **It can RECEIVE calls from the VR Module** 
+In contrast to the DataServer Module, the VR Module CAN initiate communication with the UIServer and call special functions set up in the UIServer.
+
+![alt text](static/img/tutorial/communication.png "Title Text")
 
 ## **VRnet API Documentation**
 
@@ -77,7 +96,7 @@ The following function calls are sent from jQuery to the VR module.
 
 The syntax looks like this:
 
-`ue4("rw_result", response);`
+### `ue4("rw_result", response);`
 
 where "rw_results" is the functionname and "response" the parameters.
 
