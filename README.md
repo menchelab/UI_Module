@@ -1,46 +1,8 @@
-## **DataDiVR Architecture Overview**
+## **DataDiVR - A Virtual Reality Framework for Network Visualization and Analytics**
 
-The **DataDiVR** platform consists of 4 Modules:
+![alt text](static/img/tutorial/DataDiVR_Fig_1b_notext.png)
 
-![alt text](static/img/tutorial/architecture.png )
-
-### **VRnet** - the virtual reality module written in Unreal Engine
-
-### **UiServer** - a jQuery and html website 
-
-- **The UIServer is running in the browser of your local machine and can only SEND get and post requests TO the DataServer.**
-
-Think of the UIServer as the frontend of a website and the DataServer as it's backend. 
-A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the DataServer), await it's response and finally display the result as text or as a graph.
-
-The DataServer can only RESPOND to those requests, meaning the DataServer can never send something to the frontend without being asked.
-Every communication is Initiated by the UIServer.
-
-Now here is what's special about the UIServer:
-
- - **It can also SEND api function calls to the VR Module AND**
-
- - **It can RECEIVE calls from the VR Module** 
-
-In contrast to the DataServer Module, the VR Module CAN initiate communication with the UIServer and call special functions set up in the UIServer.
-This picture illustrates the different routes of communication in the framework. 
-
-![alt text](static/img/tutorial/communication.png )
-
-
-### **DataServer** - a Flask/Python webserver 
-
-The DataServer is the backend and has 
-- **separate routes (URLs) defined for each task**
-
-When the UIServer sends a request to one of these, it parses the input parameters, performs calculations and maybee database queries and returns it's response to the UIServer.
-- **it can run on the local machine or on a powerfull cloud server** if more power is needed
-
-### **SQL database**
-
-This is the data base schema:
-![alt text](static/img/tutorial/dataserver_schema.png)
-
+Performant visualization is key to discovering context in large graphs.
 
 ## **Hardware Requirements**
 
@@ -100,7 +62,56 @@ you are good to go, if there are errors you will need to install dependencies.
 - edit DataDiVR/VRnet/viveNet/Content/data/UiServerConfig.txt and change the address to the one where your UIServer is, here http://127.0.0.1:5000/ 
 - run viveNet.exe
 
-## **Tutorial 1: UIServer**
+## **DataDiVR Architecture Overview**
+
+The **DataDiVR** platform consists of 4 Modules:
+
+![alt text](static/img/tutorial/architecture.png )
+
+### **VRnet** - the virtual reality module written in Unreal Engine
+
+Unreal Engine is one of the industry leaders in the videogame world. We chose it as the base for our VR Module for it's astounding graphics performance, continous support of upcoming VR hardware and becuase it's open source.
+
+### **UiServer** - a jQuery and html website 
+
+- **The UIServer is running in the browser of your local machine and can only SEND get and post requests TO the DataServer.**
+
+Think of the UIServer as the frontend of a website and the DataServer as it's backend. 
+A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the DataServer), await it's response and finally display the result as text or as a graph.
+
+The DataServer can only RESPOND to those requests, meaning the DataServer can never send something to the frontend without being asked.
+Every communication is Initiated by the UIServer.
+
+Now here is what's special about the UIServer:
+
+ - **It can also SEND api function calls to the VR Module AND**
+
+ - **It can RECEIVE calls from the VR Module** 
+
+In contrast to the DataServer Module, the VR Module CAN initiate communication with the UIServer and call special functions set up in the UIServer.
+This picture illustrates the different routes of communication in the framework. 
+
+![alt text](static/img/tutorial/communication.png )
+
+
+### **DataServer** - a Flask/Python webserver 
+
+The DataServer is the backend and has 
+- **separate routes (URLs) defined for each task**
+
+When the UIServer sends a request to one of these, it parses the input parameters, performs calculations and maybee database queries and returns it's response to the UIServer.
+- **it can run on the local machine or on a powerfull cloud server** if more power is needed
+
+### **SQL database**
+
+This is the data base schema:
+![alt text](static/img/tutorial/dataserver_schema.png)
+
+
+## **Tutorial 1: Using the Uploader to add your own network**
+
+
+## **Tutorial 2: UIServer and DataServer**
 
 
 ## **VRnet API Documentation**
