@@ -161,8 +161,8 @@ The User Interface in the virtual reality module is a website made with jQuery. 
 
 ![alt text](static/img/tutorial/t2-1.png)
 
-- open ''DataDiVR/UIServer/templates/main.html'' in your editor
-- at the end of the file, after <div id="tabs-7"> add <button id="MyNewButton"> EXIT </button>
+- open `DataDiVR/UIServer/templates/main.html` in your editor
+- at the end of the file, after` <div id="tabs-7">` add `<button id="MyNewButton"> EXIT </button>`
 
 
 
