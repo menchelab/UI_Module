@@ -19,17 +19,17 @@ Performant visualization is key to discovering context in large graphs.
 ## **Installation: Quick Start**
 
 for a quick start, you can just [download the VRnet executable](url) and run viveNet.exe on your windows computer with a SteamVR compatible headset.
-It comes preconfigured to connect to the other modules that we already installed on our server to make it easy for you to get a first impression.
+It comes preconfigured to connect to the other modules that we already installed on our server to make it easy for you to get a first impression. 
+It has the ability to upload your own datasets, but we don't recommend it. **Do NOT upload any sensitive data  here**, this is **only for demonstration purposes** and for the whole world to see. We don't guarantee your data's safety! If you want to work with your own data you should+ continue to the next step.
 
 ## **Installation: Stand Alone**
 
-However, if you want to implement your own datasets and functionalities you can also run everything localy on your machine or network.
-Here is a step by step guide how to do this on a windows computer. Note that the dataServer and the UiServer module can also run a (linux) server,
-while the VRnet module needs to run on a windows machine as gaming hardware is required for Virtual Reality
+However, if you want to implement your own datasets and functionalities, you can also **run everything localy on your machine (the SAFE option if you are dealing with sensitive data)** or run the DataServer and UIServer on a networkserver or cloud service (if you need scalability and processing power).
+Here is a step by step guide how to do a local installation on a windows computer. Note that the dataServer and the UiServer module can also run a (linux) server,
+while the VRnet module needs to run on a windows 10 machine as gaming hardware is required for Virtual Reality which is best supported under windows.
 
 ### **1.) Set up a MySql Database**
 
-- download and install the free version from: URL
 - download and install [MySql Workbench](https://dev.mysql.com/downloads/workbench/)
 - download the .dump file of our database [from here](url)
 - Create a new database, user and password and upload .dump file to it
@@ -44,6 +44,9 @@ you have now a clone of our database on your local machine.
 - edit DataDiVR/DataServer/db_config.py to match the database host and user you created before and save
 
 - right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
+
+![alt text](static/img/tutorial/runpowershell.png)
+
 - if the output of the console window that just opened ends with "Running on http://127.0.0.1:1337/"
 you are good to go, if there are errors you will need to install dependencies.
 
@@ -54,6 +57,7 @@ you are good to go, if there are errors you will need to install dependencies.
 - edit DataDiVR/uiserver/static/js/DataServerConfig.js and set "dbprefix" to the address of your dataServer , here: 'http://127.0.0.1:1337' and save.
 
 - right click on DataDiVR/UiServer/runUIServer.ps1 -> "run with power shell"
+
 - if the output of the console window that just opened ends with "Running on http://127.0.0.1:5000/"
 you are good to go, if there are errors you will need to install dependencies.
     
@@ -110,6 +114,51 @@ This is the data base schema:
 
 ## **Tutorial 1: Using the Uploader to add your own network**
 
+- right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell" to start the DataServer
+
+- open the web frontend of the DataServer in a browser  http://127.0.0.1:1337/swimmer
+
+![alt text](static/img/tutorial/dataserver_schema.png)
+
+- tick "Create Project"
+- select .csv files to upload
+
+### .csv file formats ###
+
+**Node Lists** look like this, 
+
+`8473,0.4993,0.4544,0.640,188,20,26,100,3dportrait`
+
+where 
+
+|8473|0.4993|0.4544|0.640|188|20|26|100|3dportrait|
+|---|---|---|---|---|---|---|---|---|
+|ID|X-Pos|Y-Pos|Z-Pos|R|G|B|A|Name|
+
+Positions need to be normalised between 0 - 1
+
+Colors RGBA range from 0 - 255 but A value's should be 100 as bigger values makes nodes glow
+
+**Link Lists**
+
+`1267,2945`
+
+where
+
+|1267|2945|
+|---|---|
+|Start|End|
+
+for now, only one link list per project is supported
+
+**Selection Lists**
+
+```
+1849
+2455
+4029
+```
+are a list of ID's separated by linebreaks
 
 ## **Tutorial 2: UIServer and DataServer**
 
