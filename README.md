@@ -4,6 +4,9 @@
 
 Performant visualization is key to discovering context in large graphs.
 
+[**Hardware Requirements**](#Hardware-Requirements)
+[**Installation: Quick Start**](#Installation-Quick-Start)
+
 ## **Hardware Requirements**
 
  We are running the platform on an MSI gaming laptop with the following specs:
@@ -135,13 +138,13 @@ This is the data base schema:
 
 `8473,0.4993,0.4544,0.640,188,20,26,100,3dportrait`
 
-where 
+where each line is a node with the following data
 
 |8473|0.4993|0.4544|0.640|188|20|26|100|3dportrait|
 |---|---|---|---|---|---|---|---|---|
 |ID|X-Pos|Y-Pos|Z-Pos|R|G|B|A|Name|
 
-Positions need to be normalised between 0 - 1
+**Note:** For now, you have to provide XYZ coordinates for the layout. The positions need to be normalised between 0 - 1
 
 Colors RGBA range from 0 - 255 but A value's should be 100 as bigger values makes nodes glow
 
