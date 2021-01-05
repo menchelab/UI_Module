@@ -159,7 +159,7 @@ The User Interface in the virtual reality module is a website made with jQuery. 
 
 - hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox.
 
-![alt text](static/img/tutorial/T2-1.png)
+![alt text](static/img/tutorial/t2-1.png)
 
 
 
