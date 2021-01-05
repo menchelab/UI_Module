@@ -20,7 +20,7 @@ Performant visualization is key to discovering context in large graphs.
 
 for a quick start, you can just [download the VRnet executable](url) and run viveNet.exe on your windows computer with a SteamVR compatible headset.
 It comes preconfigured to connect to the other modules that we already installed on our server to make it easy for you to get a first impression. 
-It has the ability to upload your own datasets, but we don't recommend it. **Do NOT upload any sensitive data  here**, this is **only for demonstration purposes** and for the whole world to see. We don't guarantee your data's safety! If you want to work with your own data you should+ continue to the next step.
+It has the ability to upload your own datasets, but we don't recommend it. **Do NOT upload any sensitive data  here**, this is **only for demonstration purposes** and for the whole world to see. We don't guarantee your data's safety! If you want to work with your own data you should go with the [Stand Alone](#Installation:-Stand-Alone) version
 
 ## **Installation: Stand Alone**
 
