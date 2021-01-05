@@ -7,12 +7,13 @@ import random, json
 from os import listdir
 from os.path import isfile, join
 
+
 app = Flask(__name__)
 
 @app.route('/')
 def output():
     # serve index template
-    return render_template('index.html')
+    return render_template('main.html')
     
 @app.route('/_side/')
 def output1():
