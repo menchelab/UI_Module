@@ -118,12 +118,18 @@ This is the data base schema:
 
 - open the web frontend of the DataServer in a browser  http://127.0.0.1:1337/swimmer
 
-![alt text](static/img/tutorial/dataserver_schema.png)
+![alt text](static/img/tutorial/swimmer.png)
 
-- tick "Create Project"
-- select .csv files to upload
+- tick "Create Project" and choose a name that doesn't exist in the dropdown menu jet
+- select .csv files to upload, [they must be formatted after these guidlines](## .csv file formats ##)
+- restart the VRModule and load your project 
 
-### .csv file formats ###
+
+## **Tutorial 2: UIServer and DataServer**
+
+
+
+## .csv file formats ##
 
 **Node Lists** look like this, 
 
@@ -160,8 +166,6 @@ for now, only one link list per project is supported
 ```
 are a list of ID's separated by linebreaks
 
-## **Tutorial 2: UIServer and DataServer**
-
 
 ## **VRnet API Documentation**
 
@@ -184,18 +188,18 @@ This list will grow in the future.
 | LoadDbLabelListB | labellist object | json  | loads a labellist for channel B of the layout |
 | Init | --- | --- | start initialization routine, OnDocumentReady()  |
 | Morph | "A" or "B" | string | Morph between layout channel A and B |
-| loadSelection | name | string | Depreached Load selection from csv file |
 | GetSelection |  { "content": "Name","route": "saveSelection"} | json  | Get active selection and do different things depending on route (save it on db in this case) | 
 | SetScale | value | float | set Network Scale  | 
 | SetNodeSize | value | float | set Network SetNodeSize (linksize is also affected by this)  |
 | SetLinkSize | value | float | set Network SetLinkSize ATTENTION: big diameters cause lag  |
 | SetLinkAlpha | value | float | set Network Link transperancy  |
 | SetLight | value | float | set scene light intensity |
-| shortestPathPoint | "p1" or "p2" |  string | get selected node ID from VR and define it either as start or endpoint | 
-| exitIsolate | --- |  --- | exit Isolate Selection Mode (show all links) | 
-| rw_result | rw object | json  | display the random walk results in VR | 
-| julia | {"seeds":[{"node_id":123}...],"variants":[...],"linker":[...]} | json  | Gene Priorization example on sidepanel |
-| activateNode | id | int | select and highlight single node in network | 
-| reLayout | nodelist object | json   | show newly created layout of subset in VR (this resorts the linklist) |
+| ShortestPathPoint | "p1" or "p2" |  string | get selected node ID from VR and define it either as start or endpoint | 
+| ExitIsolate | --- |  --- | exit Isolate Selection Mode (show all links) | 
+| Rw_Result | rw object | json  | display the random walk results in VR | 
+| Julia | {"seeds":[{"node_id":123}...],"variants":[...],"linker":[...]} | json  | Gene Priorization example on sidepanel |
+| ActivateNode | id | int | select and highlight single node in network | 
+| ReLayout | nodelist object | json   | show newly created layout of subset in VR (this resorts the linklist) |
 | VRkeyboard | route |  string | opens a keyboard in VR - after user presses ENTER, typed string is returned to a .js function by the same name as route - so you need to create this | 
+| loadSelection | name | string | Depricated Load selection from csv file |
  
