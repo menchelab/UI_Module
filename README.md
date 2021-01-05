@@ -4,6 +4,8 @@
 
 Performant visualization is key to discovering context in large graphs.
 
+## **Content**
+
 [**Hardware Requirements**](#Hardware-Requirements)
 
 [**Installation: Quick Start**](#Installation-Quick-Start)
@@ -14,10 +16,11 @@ Performant visualization is key to discovering context in large graphs.
 
 [**Tutorial 1: Using the Uploader to add your own network**](#Tutorial-1-Using-the-Uploader-to-add-your-own-network)
 
-
 [**Tutorial 2: Creating custom User Interfaces**](#Tutorial-2-Creating-custom-User-Interfaces)
 
 [**Tutorial 3: Creating a route on the backend**](#Tutorial-3-Creating-a-route-on-the-backend)
+
+[**VRnet API Documentation**](#VRnet-API-Documentation)
 
 
 
@@ -144,7 +147,16 @@ This is the data base schema:
 
 ## **Tutorial 2: Creating custom User Interfaces**
 
+The User Interface in the virtual reality module is a website made with jQuery. In this tutorial you will learn how to make UI elements like buttons or dropdown lists and how to communicate with the VR and DataServer Modules. Basic JavaScript and HTML skills required.
+
+- in [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your UIServer Folder
+
+
+
+
 ## **Tutorial 3: Creating a route on the backend**
+
+Basic Python knowledge required.
 
 ## Csv file formats ##
 
