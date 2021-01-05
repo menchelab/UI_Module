@@ -151,6 +151,18 @@ The User Interface in the virtual reality module is a website made with jQuery. 
 
 - in [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your UIServer Folder
 
+- right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
+
+![alt text](static/img/tutorial/runpowershell.png)
+
+- open a chrome browser at http://127.0.0.1:5000/ . This is the main UI to which we will add something in the right-most tab. 
+
+- hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox. Note the "Console" window, where debugging output is displayed.
+
+![alt text](static/img/tutorial/t2-1.png)
+
+- open `DataDiVR/UIServer/templates/main.html` in your editor
+- at the end of the file, after` <div id="tabs-7">` add `<button id="MyNewButton"> EXIT </button>`
 
 
 
