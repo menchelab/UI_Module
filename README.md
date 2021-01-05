@@ -151,6 +151,15 @@ The User Interface in the virtual reality module is a website made with jQuery. 
 
 - in [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your UIServer Folder
 
+- right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
+
+![alt text](static/img/tutorial/runpowershell.png)
+
+- open a chrome browser at http://127.0.0.1:5000/ . This is the main UI to which we will add something in the right-most tab. 
+
+- hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox.
+
+![alt text](static/img/tutorial/T2-1.png)
 
 
 
