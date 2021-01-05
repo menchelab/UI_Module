@@ -15,9 +15,9 @@ Performant visualization is key to discovering context in large graphs.
 [**Tutorial 1: Using the Uploader to add your own network**](#Tutorial-1-Using-the-Uploader-to-add-your-own-network)
 
 
-[**Tutorial 2: UI Server - Creating custom User Interfaces**](#Tutorial-2-UI-Server-Creating-custom-User-Interfaces)
+[**Tutorial 2: Creating custom User Interfaces**](#Tutorial-2-Creating-custom-User-Interfaces)
 
-[**Tutorial 3: Data Server - Creating a route on the backend**](#Tutorial-3-Data-Server-Creating-a-route-on-the-backend)
+[**Tutorial 3: Creating a route on the backend**](#Tutorial-3-Creating-a-route-on-the-backend)
 
 
 
@@ -142,9 +142,9 @@ This is the data base schema:
 - restart the VRModule and load your project 
 
 
-## **Tutorial 2: UI Server - Creating custom User Interfaces**
+## **Tutorial 2: Creating custom User Interfaces**
 
-## **Tutorial 3: Data Server - Creating a route on the backend**
+## **Tutorial 3: Creating a route on the backend**
 
 ## Csv file formats ##
 
