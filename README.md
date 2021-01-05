@@ -121,7 +121,7 @@ This is the data base schema:
 ![alt text](static/img/tutorial/swimmer.png)
 
 - tick "Create Project" and choose a name that doesn't exist in the dropdown menu jet
-- select .csv files to upload, [they must be formatted after these guidlines][#Csv-file-formats]
+- select .csv files to upload, [they must be formatted after these guidlines])(#Csv-file-formats)
 - restart the VRModule and load your project 
 
 
