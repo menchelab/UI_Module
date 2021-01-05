@@ -4,6 +4,26 @@
 
 Performant visualization is key to discovering context in large graphs.
 
+## **Content**
+
+[**Hardware Requirements**](#Hardware-Requirements)
+
+[**Installation: Quick Start**](#Installation-Quick-Start)
+
+[**Installation: Stand Alone**](#Installation-Stand-Alone)
+
+[**DataDiVR Architecture Overview**](#DataDiVR-Architecture-Overview)
+
+[**Tutorial 1: Using the Uploader to add your own network**](#Tutorial-1-Using-the-Uploader-to-add-your-own-network)
+
+[**Tutorial 2: Creating custom User Interfaces**](#Tutorial-2-Creating-custom-User-Interfaces)
+
+[**Tutorial 3: Creating a route on the backend**](#Tutorial-3-Creating-a-route-on-the-backend)
+
+[**VRnet API Documentation**](#VRnet-API-Documentation)
+
+
+
 ## **Hardware Requirements**
 
  We are running the platform on an MSI gaming laptop with the following specs:
@@ -20,7 +40,7 @@ Performant visualization is key to discovering context in large graphs.
 
 for a quick start, you can just [download the VRnet executable](url) and run viveNet.exe on your windows computer with a SteamVR compatible headset.
 It comes preconfigured to connect to the other modules that we already installed on our server to make it easy for you to get a first impression. 
-It has the ability to upload your own datasets, but we don't recommend it. **Do NOT upload any sensitive data  here**, this is **only for demonstration purposes** and for the whole world to see. We don't guarantee your data's safety! If you want to work with your own data you should+ continue to the next step.
+It has the ability to upload your own datasets, but we don't recommend it. **Do NOT upload any sensitive data  here**, this is **only for demonstration purposes** and for the whole world to see. We don't guarantee your data's safety! If you want to work with your own data you should go with the [Stand Alone](#Installation-Stand-Alone) version
 
 ## **Installation: Stand Alone**
 
@@ -121,27 +141,36 @@ This is the data base schema:
 ![alt text](static/img/tutorial/swimmer.png)
 
 - tick "Create Project" and choose a name that doesn't exist in the dropdown menu jet
-- select .csv files to upload, [they must be formatted after these guidlines](## .csv-file-formats ##)
+- select .csv files to upload, [they must be formatted after these guidlines](#Csv-file-formats)
 - restart the VRModule and load your project 
 
 
-## **Tutorial 2: UIServer and DataServer**
+## **Tutorial 2: Creating custom User Interfaces**
+
+The User Interface in the virtual reality module is a website made with jQuery. In this tutorial you will learn how to make UI elements like buttons or dropdown lists and how to communicate with the VR and DataServer Modules. Basic JavaScript and HTML skills required.
+
+- in [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your UIServer Folder
 
 
 
-## .csv file formats ##
+
+## **Tutorial 3: Creating a route on the backend**
+
+Basic Python knowledge required.
+
+## Csv file formats ##
 
 **Node Lists** look like this, 
 
 `8473,0.4993,0.4544,0.640,188,20,26,100,3dportrait`
 
-where 
+where each line is a node with the following data
 
 |8473|0.4993|0.4544|0.640|188|20|26|100|3dportrait|
 |---|---|---|---|---|---|---|---|---|
 |ID|X-Pos|Y-Pos|Z-Pos|R|G|B|A|Name|
 
-Positions need to be normalised between 0 - 1
+**Note:** For now, you have to provide XYZ coordinates for the layout. The positions need to be normalised between 0 - 1
 
 Colors RGBA range from 0 - 255 but A value's should be 100 as bigger values makes nodes glow
 
