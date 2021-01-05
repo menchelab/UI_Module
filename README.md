@@ -5,7 +5,21 @@
 Performant visualization is key to discovering context in large graphs.
 
 [**Hardware Requirements**](#Hardware-Requirements)
+
 [**Installation: Quick Start**](#Installation-Quick-Start)
+
+[**Installation: Stand Alone**](#Installation-Stand-Alone)
+
+[**DataDiVR Architecture Overview**](#DataDiVR-Architecture-Overview)
+
+[**Tutorial 1: Using the Uploader to add your own network**](#Tutorial-1-Using-the-Uploader-to-add-your-own-network)
+
+
+[**Tutorial 2: UI Server - Creating custom User Interfaces**](#Tutorial-2-UI-Server-Creating-custom-User-Interfaces)
+
+[**Tutorial 3: Data Server - Creating a route on the backend**](#Tutorial-3-Data-Server-Creating-a-route-on-the-backend)
+
+
 
 ## **Hardware Requirements**
 
@@ -128,9 +142,9 @@ This is the data base schema:
 - restart the VRModule and load your project 
 
 
-## **Tutorial 2: UIServer and DataServer**
+## **Tutorial 2: UI Server - Creating custom User Interfaces**
 
-
+## **Tutorial 3: Data Server - Creating a route on the backend**
 
 ## Csv file formats ##
 
