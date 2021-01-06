@@ -571,7 +571,7 @@ $(document).ready(function () {
         $("#MyNewButton").button();
         $("#MyNewButton").click(function (event) {
             event.preventDefault();
-            logger("click!") 
+            
         });
     });
     

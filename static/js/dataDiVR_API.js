@@ -535,6 +535,40 @@ function GetDbFileNames1() {
 
 }
 
+
+
+function LogOnUIServer(data) {
+
+    //var requestTxt = {"name": name};
+    //payload = JSON.stringify(requestTxt)
+    path = 'http://127.0.0.1:5000/print';
+
+    $.ajax({
+        type: "POST",
+        url: path,
+        contentType: "application/json",
+        data: data,
+        dataType: "json",
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        success: function (response) {
+
+            logger(response);
+        },
+        error: function (err) {
+            logger(err);
+            logger(data);
+        }
+    });
+    
+
+}
+
+
+
+
+
 function GetDbNodeList1(name, channel) {
 
     path = dbprefix + "/api/" + thisNamespace.namespace + "/layout/" + name;

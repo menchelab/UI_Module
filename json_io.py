@@ -36,6 +36,21 @@ def output4():
     return render_template('results.html')
 
 
+@app.route("/print", methods=['GET', 'POST'])
+
+def backlog():
+    if request.method == 'POST':
+         
+        print(request.data)
+        ##results = Node.search(namespace, data)
+        return request.data
+    else:
+         
+        print(request.data)
+        ##results = Node.search(namespace, data)
+        return request.data
+
+
 
 if __name__ == '__main__':
     # run!
