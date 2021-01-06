@@ -176,7 +176,6 @@ The different elements of the page are set up in the html documents. All the log
 Then there is **a file for each of the html files** (main_UI.js). These all have this initialization function `$(document).ready(function () {....}` and in there are functions **that bind to the UI elements created in Html**. For our button we do this:
 
 - at the end of main_UI.js, but still inside the document.ready() function put this code:
-
 ```
 $(function () {
         $("#MyNewButton").button();
@@ -187,7 +186,6 @@ $(function () {
     });
 ```
 - save and refresh the browser
-
 ![alt text](static/img/tutorial/t2-4.png)
 
 Now that jQuery is aware of the new button the css styling also works. Click it and the console outputs the message so we know it works.
@@ -195,7 +193,6 @@ Now that jQuery is aware of the new button the css styling also works. Click it 
 ### **Step 2: Communicate with the VR Module**
 
 - put this code in the MyNewButton.click() function
-
 ```          
 var args = {
     "content": "somecoolName",
@@ -218,15 +215,15 @@ ue.interface.getSelection = function (data) {
     logger(data);
 
     switch (data.route) {
-    case "saveSelection":
-        SaveSelectionDB(data);
-        break;
-    case "reLayout":
-        ReLayoutSubSet(data);
-        break;
-    case "GSEA":
-        GSEASubSet(data);
-        break;
+     case "saveSelection":
+         SaveSelectionDB(data);
+         break;
+     case "reLayout":
+         ReLayoutSubSet(data);
+         break;
+     case "GSEA":
+         GSEASubSet(data);
+         break;
 
     }
 
@@ -236,10 +233,21 @@ ue.interface.getSelection = function (data) {
 Because the GetSelection call is used for different things, it's arguments contain `"route": "tutorial"` that is used in the return function to determine what to do with the response. 
 
 - in the return function above, add a case "tutorial" to the switch statement
-
+```
     case "tutorial":
-        GSEASubSet(data);
+        LogOnUIServer(data);
         break;
+```       
+`LogOnUIServer(data);` prints out the data we receive from the VR Module on our python console.
+
+That's it! let's start the VR Module and check if everything works.
+
+- start viveNet.exe
+- open a layout ![alt text](static/img/tutorial/t2-5.png)
+- load a selection ![alt text](static/img/tutorial/t2-6.png)
+- click on MyNewButton
+
+
 
 ## **Tutorial 3: Creating a route on the backend**
 
