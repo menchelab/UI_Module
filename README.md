@@ -149,6 +149,8 @@ This is the data base schema:
 
 The User Interface in the virtual reality module is a website made with jQuery. In this tutorial you will learn how to make UI elements like buttons or dropdown lists and how to communicate with the VR and DataServer Modules. Basic JavaScript and HTML skills required.
 
+### **Step 1: Create a button**
+
 - in [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your UIServer Folder
 
 - right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
@@ -171,7 +173,7 @@ The different elements of the page are set up in the html documents. All the log
 
 **dataDiVR_API.js** is the most important, it has **all the functions to communicate between the DataServer and the VR module.**
 
-Then there is a file for each of the html files (main_UI.js). These all have this initialization function `$(document).ready(function () {....}` and in there are functions that bind to the UI elements created in Html. For our button we do this:
+Then there is **a file for each of the html files** (main_UI.js). These all have this initialization function `$(document).ready(function () {....}` and in there are functions **that bind to the UI elements created in Html**. For our button we do this:
 
 - at the end of main_UI.js, but still inside the document.ready() function put this code:
 
@@ -185,7 +187,14 @@ $(function () {
     });
 ```
 - save and refresh the browser
+
 ![alt text](static/img/tutorial/t2-4.png)
+
+Now that jQuery is aware of the new button the css styling also works. Click it and the console outputs the message so we know it works.
+
+### **Step 2: Communicate with the VR Module
+
+- 
 
 ## **Tutorial 3: Creating a route on the backend**
 
