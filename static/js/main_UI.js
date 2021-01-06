@@ -571,6 +571,13 @@ $(document).ready(function () {
         $("#MyNewButton").button();
         $("#MyNewButton").click(function (event) {
             event.preventDefault();
+
+            var out = {
+                "content": "somecoolName",
+                "route": "tutorial"
+            };
+            
+            ue4("GetSelection", out);    
             
         });
     });

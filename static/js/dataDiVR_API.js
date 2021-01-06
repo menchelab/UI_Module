@@ -30,25 +30,24 @@ function logger(message) {
 
 
 ue.interface.getSelection = function (data) {
-    logger(data);
+    
 
     switch (data.route) {
-    case "saveSelection":
-        SaveSelectionDB(data);
-        break;
-    case "reLayout":
-        ReLayoutSubSet(data);
-        break;
-    case "GSEA":
-        GSEASubSet(data);
-        
-        break;
+        case "saveSelection":
+            SaveSelectionDB(data);
+            break;
+        case "reLayout":
+            ReLayoutSubSet(data);
+            break;
+        case "GSEA":
+            GSEASubSet(data);
+            break;
+        case "tutorial":
+            LogOnUIServer(data);
+            break;
 
     }
-    // i
-    //dummydata = '{"node_ids":[12149,108],"selection_name":"somAARGrgARGagname"}';
-    //input = JSON.parse(data);
-    //logger(input);
+  
 
 };
 
@@ -554,11 +553,11 @@ function LogOnUIServer(data) {
         },
         success: function (response) {
 
-            logger(response);
+            //logger(response);
         },
         error: function (err) {
             logger(err);
-            logger(data);
+            //logger(data);
         }
     });
     

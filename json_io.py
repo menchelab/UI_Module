@@ -40,14 +40,15 @@ def output4():
 
 def backlog():
     if request.method == 'POST':
-         
+        
+       
         print(request.data)
-        ##results = Node.search(namespace, data)
+        
         return request.data
     else:
          
         print(request.data)
-        ##results = Node.search(namespace, data)
+       
         return request.data
 
 
