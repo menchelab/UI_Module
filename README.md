@@ -163,8 +163,29 @@ The User Interface in the virtual reality module is a website made with jQuery. 
 
 - open `DataDiVR/UIServer/templates/main.html` in your editor
 - at the end of the file, after` <div id="tabs-7">` add `<button id="MyNewButton"> EXIT </button>`
+- save changes to main.html and refresh the browser by clicking in the red area and hit F5
+![alt text](static/img/tutorial/t2-3.png)
+- if you now navigate to the right most tab again, the button appeared. It looks grey though, not like the other buttons. 
 
+The different elements of the page are set up in the html documents. All the logic happens in the JavaScript which live in the `uiserver\static\js` folder.
 
+**dataDiVR_API.js** is the most important, it has **all the functions to communicate between the DataServer and the VR module.**
+
+Then there is a file for each of the html files (main_UI.js). These all have this initialization function `$(document).ready(function () {....}` and in there are functions that bind to the UI elements created in Html. For our button we do this:
+
+- at the end of main_UI.js, but still inside the document.ready() function put this code:
+
+```
+$(function () {
+        $("#MyNewButton").button();
+        $("#MyNewButton").click(function (event) {
+            event.preventDefault();
+            logger("click!") 
+        });
+    });
+```
+- save and refresh the browser
+![alt text](static/img/tutorial/t2-4.png)
 
 ## **Tutorial 3: Creating a route on the backend**
 
