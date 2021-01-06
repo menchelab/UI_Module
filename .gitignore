@@ -2,6 +2,7 @@
 #db_config.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
+__pycache__
 *.py[cod]
 *.pyc
 *$py.class
