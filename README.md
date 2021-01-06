@@ -247,6 +247,8 @@ That's it! let's start the VR Module and check if everything works.
 - load a selection ![alt text](static/img/tutorial/t2-6.png)
 - click on MyNewButton
 
+You should see some printout in the UI_Server console window
+
 
 
 ## **Tutorial 3: Creating a route on the backend**
