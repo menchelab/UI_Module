@@ -567,6 +567,15 @@ $(document).ready(function () {
         });
     });
 
+    $(function () {
+        $("#MyNewButton").button();
+        $("#MyNewButton").click(function (event) {
+            event.preventDefault();
+            logger("click!") 
+        });
+    });
+    
+    
     ///////INIT HERE
     $("#spinner").hide();
     $("#spinner_load").hide();
