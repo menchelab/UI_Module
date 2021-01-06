@@ -192,9 +192,54 @@ $(function () {
 
 Now that jQuery is aware of the new button the css styling also works. Click it and the console outputs the message so we know it works.
 
-### **Step 2: Communicate with the VR Module
+### **Step 2: Communicate with the VR Module**
 
-- 
+- put this code in the MyNewButton.click() function
+
+```          
+var args = {
+    "content": "somecoolName",
+    "route": "tutorial"
+};
+
+ue4("GetSelection", args);
+```
+
+Everything that looks like `ue4("name","argument")` are calls to the VR module, the so called VRnet API documented [here](#VRnet-API-Documentation).
+
+The variable "args" is a JavaScript object and follows the [JSON syntax](https://www.json.org/json-en.html). 
+
+The "GetSelection" call above returns the currently selected nodes in the VR module to this **return function** `ue.interface.getSelection` specified in dataDiVR_API.js around line 30
+
+```
+//// FUNCTIONS CALLED BY UE4
+
+ue.interface.getSelection = function (data) {
+    logger(data);
+
+    switch (data.route) {
+    case "saveSelection":
+        SaveSelectionDB(data);
+        break;
+    case "reLayout":
+        ReLayoutSubSet(data);
+        break;
+    case "GSEA":
+        GSEASubSet(data);
+        break;
+
+    }
+
+};
+```
+
+Because the GetSelection call is used for different things, it's arguments contain `"route": "tutorial"` that is used in the return function to determine what to do with the response. 
+
+- in the return function above, add a case "tutorial" to the switch statement
+
+    case "tutorial":
+        GSEASubSet(data);
+        break;
 
 ## **Tutorial 3: Creating a route on the backend**
 
