@@ -244,9 +244,11 @@ Because the GetSelection call is used for different things, it's arguments conta
 That's it! let's start the VR Module and check if everything works.
 
 * start viveNet.exe
-* open a layout 
+* open a layout
+
  ![alt text](static/img/tutorial/t2-5.png)
-* load a selection 
+* load a selection
+
  ![alt text](static/img/tutorial/t2-6.png)
 * click on MyNewButton
 
