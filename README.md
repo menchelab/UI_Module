@@ -148,6 +148,7 @@ This is the data base schema:
 ## **Tutorial 2: Creating custom User Interfaces**
 
 The User Interface in the virtual reality module is a website made with jQuery. In this tutorial you will learn how to make UI elements like buttons or dropdown lists and how to communicate with the VR and DataServer Modules. Basic JavaScript and HTML skills required.
+Prerequisites: install the DataDiVR framework on your local machine [**Installation: Stand Alone**](#Installation-Stand-Alone) 
 
 ### **Step 1: Create a button**
 
@@ -243,17 +244,34 @@ Because the GetSelection call is used for different things, it's arguments conta
 That's it! let's start the VR Module and check if everything works.
 
 - start viveNet.exe
-- open a layout ![alt text](static/img/tutorial/t2-5.png)
-- load a selection ![alt text](static/img/tutorial/t2-6.png)
+- open a layout 
+![alt text](static/img/tutorial/t2-5.png)
+- load a selection 
+![alt text](static/img/tutorial/t2-6.png)
 - click on MyNewButton
 
-You should see some printout in the UI_Server console window
-
-
+You should see some printout in the UI_Server console window.
+We have now initiated comunication from the UI module to the VR module (by pressing the button) and received a reponse. In the next step we will see how to do the same with the backend, the DataServer.
 
 ## **Tutorial 3: Creating a route on the backend**
 
-Basic Python knowledge required.
+Basic Python knowledge required
+Prerequisites: local install of the DataDiVR framework [**Installation: Stand Alone**](#Installation-Stand-Alone), Tutorial 2 finished 
+
+- in a new instance of [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your **DataServer** folder
+- in `app.py`, at the end of the document but before `if __name__ == "__main__":` insert
+```
+@app.route('/api/<string:db_namespace>/MyNewRoute', methods=['POST'])
+@cross_origin()
+def my_new_route(db_namespace):
+    data =request.get_json()
+    node_ids = [int(x) for x in data['node_ids']]
+    print(node_ids)
+    return jsonify(node_ids)
+```
+- save `app.py` and bring up the DataServer console, it should detect the change and restart automatically
+![alt text](static/img/tutorial/t3-1.png)
+
 
 ## Csv file formats ##
 
