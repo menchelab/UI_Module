@@ -43,7 +43,7 @@ ue.interface.getSelection = function (data) {
             GSEASubSet(data);
             break;
         case "tutorial":
-            LogOnUIServer(data);
+            MyNewPostRequest(data);
             break;
 
     }
@@ -561,6 +561,34 @@ function LogOnUIServer(data) {
         }
     });
     
+
+}
+
+function MyNewPostRequest(data) {
+
+    //var requestTxt = {"name": name};
+    //payload = JSON.stringify(requestTxt)
+    payload = JSON.stringify(data);
+    //logger(payload);
+    path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute";
+    $.ajax({
+        type: "POST",
+        url: path,
+        contentType: "application/json",
+        data: payload,
+        dataType: "json",
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        success: function (response) {
+
+            logger(response);
+        },
+        error: function (err) {
+            logger(err);
+            logger(data);
+        }
+    });
 
 }
 
