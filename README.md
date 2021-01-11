@@ -229,10 +229,11 @@ We have now initiated comunication from the UI module to the VR module (by press
 
 ## **Tutorial 3: Creating a route on the backend**
 
-Basic Python knowledge required
-Prerequisites: local install of the DataDiVR framework [**Installation: Stand Alone**](#Installation-Stand-Alone), Tutorial 2 finished 
+Basic Python knowledge required <br> Prerequisites: 
+- local installation of the DataDiVR framework [**Installation: Stand Alone**](#Installation-Stand-Alone)
+- Tutorial 2 finished 
 
-- in a new instance of [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your **DataServer** folder
+- in a new instance of [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) <br> File -> Open Folder -> navigate to your **DataServer** folder
 - in `app.py`, at the end of the document but before `if __name__ == "__main__":` insert
 ```
 @app.route('/api/<string:db_namespace>/MyNewRoute', methods=['POST'])
@@ -248,7 +249,12 @@ def my_new_route(db_namespace):
 
 ## Csv file formats ##
 
-**Node Lists** look like this,<br>`8473,0.4993,0.4544,0.640,188,20,26,100,3dportrait`<br> where each line is a node with the following data
+**Node Lists** look like this:
+```
+8473,0.4993,0.4544,0.640,188,20,26,100,3dportrait
+...
+```
+where each line is a node with the following data:
 
 |8473|0.4993|0.4544|0.640|188|20|26|100|3dportrait|
 |---|---|---|---|---|---|---|---|---|
@@ -256,12 +262,14 @@ def my_new_route(db_namespace):
 
 **Note:** For now, you have to provide XYZ coordinates for the layout. The positions need to be normalised between 0 - 1
 
-Colors RGBA range from 0 - 255 but A value's should be 100 as bigger values makes nodes glow
+RGBA colors range from 0 - 255
+**Note: A value's should be 100.** Bigger values makes nodes glow, smaller values make them darker.
 
 **Link Lists**
-
-`1267,2945`
-
+```
+1267,2945
+...
+```
 where
 
 |1267|2945|
@@ -276,6 +284,7 @@ for now, only one link list per project is supported
 1849
 2455
 4029
+...
 ```
 are a list of ID's separated by linebreaks
 
