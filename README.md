@@ -156,13 +156,13 @@ Prerequisites: install the DataDiVR framework on your local machine [**Installat
 
 - right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
 
-&emsp;![alt text](static/img/tutorial/runpowershell.png)
+&emsp; ![alt text](static/img/tutorial/runpowershell.png)
 
 - open a chrome browser at http://127.0.0.1:5000/ . This is the main UI to which we will add something in the right-most tab. 
 
 - hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox. Note the "Console" window, where debugging output is displayed.
 
-&emsp;![alt text](static/img/tutorial/t2-1.png)
+&emsp; ![alt text](static/img/tutorial/t2-1.png)
 
 - open `DataDiVR/UIServer/templates/main.html` in your editor
 - at the end of the file, after` <div id="tabs-7">` add `<button id="MyNewButton"> EXIT </button>`
@@ -247,11 +247,9 @@ That's it! let's start the VR Module and check if everything works.
 
 * start viveNet.exe
 * open a layout
-
-&emsp;![alt text](static/img/tutorial/t2-5.png)
+&emsp; ![alt text](static/img/tutorial/t2-5.png)
 * load a selection
-
-&emsp;![alt text](static/img/tutorial/t2-6.png)
+&emsp; ![alt text](static/img/tutorial/t2-6.png)
 * click on MyNewButton
 
 You should see some printout in the UI_Server console window.
