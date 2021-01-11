@@ -178,7 +178,7 @@ The different elements of the page are set up in the html documents. All the log
 Then there is **a file for each of the html files** (main_UI.js). These all have this initialization function `$(document).ready(function () {....}` and in there are functions **that bind to the UI elements created in Html**. For our button we do this:
 
 - at the end of main_UI.js, but still inside the document.ready() function put this code:
-&emsp;```
+```
 $(function () {
         $("#MyNewButton").button();
         $("#MyNewButton").click(function (event) {
@@ -188,7 +188,8 @@ $(function () {
     });
 ```
 - save and refresh the browser
-![alt text](static/img/tutorial/t2-4.png)
+
+&emsp;![alt text](static/img/tutorial/t2-4.png)
 
 Now that jQuery is aware of the new button the css styling also works. Click it and the console outputs the message so we know it works.
 
