@@ -167,7 +167,7 @@ Prerequisites: install the DataDiVR framework on your local machine [**Installat
 - open `DataDiVR/UIServer/templates/main.html` in your editor
 - at the end of the file, after` <div id="tabs-7">` add `<button id="MyNewButton"> EXIT </button>`
 - save changes to main.html and refresh the browser by clicking in the red area and hit F5
-![alt text](static/img/tutorial/t2-3.png)
++ ![alt text](static/img/tutorial/t2-3.png)
 - if you now navigate to the right most tab again, the button appeared. It looks grey though, not like the other buttons. 
 
 The different elements of the page are set up in the html documents. All the logic happens in the JavaScript which live in the `uiserver\static\js` folder.
@@ -243,12 +243,12 @@ Because the GetSelection call is used for different things, it's arguments conta
 
 That's it! let's start the VR Module and check if everything works.
 
-- start viveNet.exe
-- open a layout 
-![alt text](static/img/tutorial/t2-5.png)
-- load a selection 
-![alt text](static/img/tutorial/t2-6.png)
-- click on MyNewButton
+* start viveNet.exe
+* open a layout 
++ ![alt text](static/img/tutorial/t2-5.png)
+* load a selection 
++ ![alt text](static/img/tutorial/t2-6.png)
+* click on MyNewButton
 
 You should see some printout in the UI_Server console window.
 We have now initiated comunication from the UI module to the VR module (by pressing the button) and received a reponse. In the next step we will see how to do the same with the backend, the DataServer.
@@ -270,7 +270,7 @@ def my_new_route(db_namespace):
     return jsonify(node_ids)
 ```
 - save `app.py` and bring up the DataServer console, it should detect the change and restart automatically
-![alt text](static/img/tutorial/t3-1.png)
++ ![alt text](static/img/tutorial/t3-1.png)
 
 
 ## Csv file formats ##
