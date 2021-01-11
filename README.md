@@ -110,9 +110,7 @@ This picture illustrates the different routes of communication in the framework.
 ### **DataServer** - a Flask/Python webserver 
 
 The DataServer is the backend and has 
-- **separate routes (URLs) defined for each task**
-
-When the UIServer sends a request to one of these, it parses the input parameters, performs calculations and maybee database queries and returns it's response to the UIServer.
+- **separate routes (URLs) defined for each task** <br> When the UIServer sends a request to one of these, it parses the input parameters, performs calculations and maybee database queries and returns it's response to the UIServer.
 - **it can run on the local machine or on a powerfull cloud server** if more power is needed
 
 ### **SQL database**
@@ -124,11 +122,7 @@ This is the data base schema:
 ## **Tutorial 1: Using the Uploader to add your own network**
 
 - right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell" to start the DataServer
-
-- open the web frontend of the DataServer in a browser  http://127.0.0.1:1337/swimmer
-
-&emsp;![alt text](static/img/tutorial/swimmer.png)
-
+- open the web frontend of the DataServer in a browser  http://127.0.0.1:1337/swimmer <br> ![alt text](static/img/tutorial/swimmer.png)
 - tick "Create Project" and choose a name that doesn't exist in the dropdown menu jet
 - select .csv files to upload, [they must be formatted after these guidlines](#Csv-file-formats)
 - restart the VRModule and load your project 
@@ -143,25 +137,23 @@ Prerequisites: install the DataDiVR framework on your local machine [**Installat
 
 - in [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your UIServer Folder
 
-- right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
-<br> ![alt text](static/img/tutorial/runpowershell.png)
+- right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell" <br> ![alt text](static/img/tutorial/runpowershell.png)
 
 - open a chrome browser at http://127.0.0.1:5000/ . This is the main UI to which we will add something in the right-most tab. 
 
-- hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox. Note the "Console" window, where debugging output is displayed.<br> ![alt text](static/img/tutorial/t2-1.png)
-
+- hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox. Note the "Console" window, where debugging output is displayed. <br> ![alt text](static/img/tutorial/t2-1.png)
 - open `DataDiVR/UIServer/templates/main.html` in your editor
 - at the end of the file, after` <div id="tabs-7">` add `<button id="MyNewButton"> EXIT </button>`
 - save changes to main.html and refresh the browser by clicking in the red area and hit F5 <br>![alt text](static/img/tutorial/t2-3.png)
 - if you now navigate to the right most tab again, the button appeared. It looks grey though, not like the other buttons. 
 
-The different elements of the page are set up in the html documents. All the logic happens in the JavaScript which live in the `uiserver\static\js` folder.
+The different elements of the page are set up in the html documents. All the logic happens in the JavaScript, in the `uiserver\static\js` folder.
 
 **dataDiVR_API.js** is the most important, it has **all the functions to communicate between the DataServer and the VR module.**
 
 Then there is **a file for each of the html files** (main_UI.js). These all have this initialization function `$(document).ready(function () {....}` and in there are functions **that bind to the UI elements created in Html**. For our button we do this:
 
-- at the end of main_UI.js, but still inside the document.ready() function put this code:
+- at the end of main_UI.js, but still inside the document.ready() function put this code:<br> 
 ```
 $(function () {
         $("#MyNewButton").button();
@@ -171,9 +163,7 @@ $(function () {
         });
     });
 ```
-- save and refresh the browser
-
-&emsp;![alt text](static/img/tutorial/t2-4.png)
+- save and refresh the browser <br> ![alt text](static/img/tutorial/t2-4.png)
 
 Now that jQuery is aware of the new button the css styling also works. Click it and the console outputs the message so we know it works.
 
@@ -253,17 +243,12 @@ def my_new_route(db_namespace):
     print(node_ids)
     return jsonify(node_ids)
 ```
-- save `app.py` and bring up the DataServer console, it should detect the change and restart automatically
-+ ![alt text](static/img/tutorial/t3-1.png)
+- save `app.py` and bring up the DataServer console, it should detect the change and restart automatically <br> ![alt text](static/img/tutorial/t3-1.png)
 
 
 ## Csv file formats ##
 
-**Node Lists** look like this, 
-
-`8473,0.4993,0.4544,0.640,188,20,26,100,3dportrait`
-
-where each line is a node with the following data
+**Node Lists** look like this,<br>`8473,0.4993,0.4544,0.640,188,20,26,100,3dportrait`<br> where each line is a node with the following data
 
 |8473|0.4993|0.4544|0.640|188|20|26|100|3dportrait|
 |---|---|---|---|---|---|---|---|---|
@@ -301,7 +286,7 @@ The following function calls are sent from jQuery to the VR module.
 
 The syntax looks like this:
 
-### `ue4("rw_result", response);`
+**`ue4("rw_result", response);`**
 
 where "rw_results" is the functionname and "response" the parameters.
 
