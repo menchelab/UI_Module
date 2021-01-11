@@ -245,11 +245,9 @@ That's it! let's start the VR Module and check if everything works.
 
 * start viveNet.exe
 * open a layout
-
- ![alt text](static/img/tutorial/t2-5.png)
+&emsp;![alt text](static/img/tutorial/t2-5.png)
 * load a selection
-
- ![alt text](static/img/tutorial/t2-6.png)
+&emsp;![alt text](static/img/tutorial/t2-6.png)
 * click on MyNewButton
 
 You should see some printout in the UI_Server console window.
