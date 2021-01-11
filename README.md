@@ -62,9 +62,7 @@ you have now a clone of our database on your local machine.
 
 - edit DataDiVR/DataServer/db_config.py to match the database host and user you created before and save
 
-- right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
-
-&emsp;![alt text](static/img/tutorial/runpowershell.png)
+- right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell" <br>![alt text](static/img/tutorial/runpowershell.png)
 
 - if the output of the console window that just opened ends with "Running on http://127.0.0.1:1337/"
 you are good to go, if there are errors you will need to install dependencies.
@@ -87,7 +85,7 @@ you are good to go, if there are errors you will need to install dependencies.
 
 ## **DataDiVR Architecture Overview**
 
-The **DataDiVR** platform consists of 4 Modules:<br>![alt text](static/img/tutorial/architecture.png )
+The **DataDiVR** platform consists of 5 Modules:<br>![alt text](static/img/tutorial/architecture.png )
 
 ### **VRnet** - the virtual reality module written in Unreal Engine
 
@@ -95,8 +93,7 @@ Unreal Engine is one of the industry leaders in the videogame world. We chose it
 
 ### **UiServer** - a jQuery and html website 
 
-- **The UIServer is running in the browser of your local machine and can only SEND get and post requests TO the DataServer.** <br>Think of the UIServer as the frontend of a website and the DataServer as it's backend. 
-A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the DataServer), await it's response and finally display the result as text or as a graph. <br>The DataServer can only RESPOND to those requests, meaning the DataServer can never send something to the frontend without being asked. Every communication is Initiated by the UIServer.
+**The UIServer** is running in the browser of your local machine and can only **SEND GET and POST requests TO the DataServer.** <br>Think of the UIServer as the frontend of a website and the DataServer as it's backend. <br>A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the DataServer), await it's response and finally display the result as text or as a graph. <br>The DataServer can only RESPOND to those requests, meaning the DataServer can never send something to the frontend without being asked. Every communication is Initiated by the UIServer.
 
 Now here is what's special about the UIServer:
 
