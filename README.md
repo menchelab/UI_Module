@@ -246,6 +246,42 @@ def my_new_route(db_namespace):
 ```
 - save `app.py` and bring up the DataServer console, it should detect the change and restart automatically <br> ![alt text](static/img/tutorial/t3-1.png)
 
+Thats it! Now we will go back to the UIServer and forward the output of the VR module that we created previously in tutorial 2. <br> For this we will use a POST request.
+
+- go to the UIServer project and also open it in a new Visual Studio Instance.
+- paste this code at the end of `dataDiVR_API.js`
+```
+function MyNewPostRequest(data) {
+
+    payload = JSON.stringify(data);
+    //logger(payload);
+    path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute";
+    $.ajax({
+        type: "POST",
+        url: path,
+        contentType: "application/json",
+        data: payload,
+        dataType: "json",
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        success: function (response) {
+        // DO SOMETHING WITH RESPONSE HERE!
+            logger(response);
+        },
+        error: function (err) {
+            logger(err);
+            logger(data);
+        }
+    });
+
+}
+```
+This is a blank POST request that calls the route we created before.
+`path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute"` is the target URL, dbprefix comes from `DataServerConfig.js` and `thisNamespace.namespace` is the name of the project. 
+
+- also in dataDiVR_API.js, in the function `ue.interface.getSelection` put `MyNewPostRequest(data);` instead of `LogOnUIServer(data);`
+
 
 ## Csv file formats ##
 
