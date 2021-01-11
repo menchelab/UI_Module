@@ -44,8 +44,7 @@ It has the ability to upload your own datasets, but we don't recommend it. **Do 
 
 ## **Installation: Stand Alone**
 
-However, if you want to implement your own datasets and functionalities, you can also **run everything localy on your machine (the SAFE option if you are dealing with sensitive data)** or run the DataServer and UIServer on a networkserver or cloud service (if you need scalability and processing power).
-Here is a step by step guide how to do a local installation on a windows computer. Note that the dataServer and the UiServer module can also run a (linux) server,
+However, if you want to implement your own datasets and functionalities, you can also **run everything localy on your machine (the SAFE option if you are dealing with sensitive data)** or run the DataServer and UIServer on a networkserver or cloud service (if you need scalability and processing power).<br>Here is a step by step guide how to do a local installation on a windows computer. Note that the dataServer and the UiServer module can also run a (linux) server,
 while the VRnet module needs to run on a windows 10 machine as gaming hardware is required for Virtual Reality which is best supported under windows.
 
 ### **1.) Set up a MySql Database**
@@ -88,9 +87,7 @@ you are good to go, if there are errors you will need to install dependencies.
 
 ## **DataDiVR Architecture Overview**
 
-The **DataDiVR** platform consists of 4 Modules:
-
-![alt text](static/img/tutorial/architecture.png )
+The **DataDiVR** platform consists of 4 Modules:<br>![alt text](static/img/tutorial/architecture.png )
 
 ### **VRnet** - the virtual reality module written in Unreal Engine
 
@@ -98,13 +95,8 @@ Unreal Engine is one of the industry leaders in the videogame world. We chose it
 
 ### **UiServer** - a jQuery and html website 
 
-- **The UIServer is running in the browser of your local machine and can only SEND get and post requests TO the DataServer.**
-
-Think of the UIServer as the frontend of a website and the DataServer as it's backend. 
-A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the DataServer), await it's response and finally display the result as text or as a graph.
-
-The DataServer can only RESPOND to those requests, meaning the DataServer can never send something to the frontend without being asked.
-Every communication is Initiated by the UIServer.
+- **The UIServer is running in the browser of your local machine and can only SEND get and post requests TO the DataServer.** <br>Think of the UIServer as the frontend of a website and the DataServer as it's backend. 
+A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the DataServer), await it's response and finally display the result as text or as a graph. <br>The DataServer can only RESPOND to those requests, meaning the DataServer can never send something to the frontend without being asked. Every communication is Initiated by the UIServer.
 
 Now here is what's special about the UIServer:
 
