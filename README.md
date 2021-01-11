@@ -65,7 +65,7 @@ you have now a clone of our database on your local machine.
 
 - right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
 
-![alt text](static/img/tutorial/runpowershell.png)
+&emsp;![alt text](static/img/tutorial/runpowershell.png)
 
 - if the output of the console window that just opened ends with "Running on http://127.0.0.1:1337/"
 you are good to go, if there are errors you will need to install dependencies.
@@ -138,7 +138,7 @@ This is the data base schema:
 
 - open the web frontend of the DataServer in a browser  http://127.0.0.1:1337/swimmer
 
-![alt text](static/img/tutorial/swimmer.png)
+&emsp;![alt text](static/img/tutorial/swimmer.png)
 
 - tick "Create Project" and choose a name that doesn't exist in the dropdown menu jet
 - select .csv files to upload, [they must be formatted after these guidlines](#Csv-file-formats)
@@ -156,18 +156,19 @@ Prerequisites: install the DataDiVR framework on your local machine [**Installat
 
 - right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
 
-![alt text](static/img/tutorial/runpowershell.png)
+&emsp;![alt text](static/img/tutorial/runpowershell.png)
 
 - open a chrome browser at http://127.0.0.1:5000/ . This is the main UI to which we will add something in the right-most tab. 
 
 - hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox. Note the "Console" window, where debugging output is displayed.
 
-![alt text](static/img/tutorial/t2-1.png)
+&emsp;![alt text](static/img/tutorial/t2-1.png)
 
 - open `DataDiVR/UIServer/templates/main.html` in your editor
 - at the end of the file, after` <div id="tabs-7">` add `<button id="MyNewButton"> EXIT </button>`
 - save changes to main.html and refresh the browser by clicking in the red area and hit F5
-+ ![alt text](static/img/tutorial/t2-3.png)
+
+&emsp;![alt text](static/img/tutorial/t2-3.png)
 - if you now navigate to the right most tab again, the button appeared. It looks grey though, not like the other buttons. 
 
 The different elements of the page are set up in the html documents. All the logic happens in the JavaScript which live in the `uiserver\static\js` folder.
@@ -177,7 +178,7 @@ The different elements of the page are set up in the html documents. All the log
 Then there is **a file for each of the html files** (main_UI.js). These all have this initialization function `$(document).ready(function () {....}` and in there are functions **that bind to the UI elements created in Html**. For our button we do this:
 
 - at the end of main_UI.js, but still inside the document.ready() function put this code:
-```
+&emsp;```
 $(function () {
         $("#MyNewButton").button();
         $("#MyNewButton").click(function (event) {
@@ -245,8 +246,10 @@ That's it! let's start the VR Module and check if everything works.
 
 * start viveNet.exe
 * open a layout
+
 &emsp;![alt text](static/img/tutorial/t2-5.png)
 * load a selection
+
 &emsp;![alt text](static/img/tutorial/t2-6.png)
 * click on MyNewButton
 
