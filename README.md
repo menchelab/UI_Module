@@ -155,20 +155,15 @@ Prerequisites: install the DataDiVR framework on your local machine [**Installat
 - in [Visual Studio Code](https://code.visualstudio.com/) (or the texteditor of your choice) File -> Open Folder -> navigate to your UIServer Folder
 
 - right click on DataDiVR/DataServer/runDataSerVR.ps1 -> "run with power shell"
-
-&emsp; ![alt text](static/img/tutorial/runpowershell.png)
+<br> ![alt text](static/img/tutorial/runpowershell.png)
 
 - open a chrome browser at http://127.0.0.1:5000/ . This is the main UI to which we will add something in the right-most tab. 
 
-- hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox. Note the "Console" window, where debugging output is displayed.
-
-&emsp; ![alt text](static/img/tutorial/t2-1.png)
+- hit 'Ctrl + Shift + i' to open the developer tools, click on "Network" and tick the "Disable Cache" checkbox. Note the "Console" window, where debugging output is displayed.<br> ![alt text](static/img/tutorial/t2-1.png)
 
 - open `DataDiVR/UIServer/templates/main.html` in your editor
 - at the end of the file, after` <div id="tabs-7">` add `<button id="MyNewButton"> EXIT </button>`
-- save changes to main.html and refresh the browser by clicking in the red area and hit F5
-
-&emsp;![alt text](static/img/tutorial/t2-3.png)
+- save changes to main.html and refresh the browser by clicking in the red area and hit F5 <br>![alt text](static/img/tutorial/t2-3.png)
 - if you now navigate to the right most tab again, the button appeared. It looks grey though, not like the other buttons. 
 
 The different elements of the page are set up in the html documents. All the logic happens in the JavaScript which live in the `uiserver\static\js` folder.
@@ -246,10 +241,8 @@ Because the GetSelection call is used for different things, it's arguments conta
 That's it! let's start the VR Module and check if everything works.
 
 * start viveNet.exe
-* open a layout <br>
-&emsp; ![alt text](static/img/tutorial/t2-5.png)
-* load a selection
-&emsp; ![alt text](static/img/tutorial/t2-6.png)
+* open a layout <br>![alt text](static/img/tutorial/t2-5.png)
+* load a selection<br>![alt text](static/img/tutorial/t2-6.png)
 * click on MyNewButton
 
 You should see some printout in the UI_Server console window.
