@@ -566,8 +566,6 @@ function LogOnUIServer(data) {
 
 function MyNewPostRequest(data) {
 
-    //var requestTxt = {"name": name};
-    //payload = JSON.stringify(requestTxt)
     payload = JSON.stringify(data);
     //logger(payload);
     path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute";
