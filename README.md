@@ -93,7 +93,7 @@ The **DataDiVR** platform consists of 5 Modules:<br>![alt text](static/img/tutor
 
 Unreal Engine is one of the industry leaders in the videogame world. We chose it as the base for our VR Module for it's astounding graphics performance, continuous support of upcoming VR hardware and because it's open source.
 
-### ** UI Module ** - a jQuery and html website 
+### **UI Module** - a jQuery and html website 
 
 **The UI Module ** is running in the browser of your local machine and can only **SEND GET and POST requests TO the Analytics Module.** <br>Think of the UI Module as the frontend of a website and the Analytics Module as it's backend. <br>A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the Analytics Module), await it's response and finally display the result as text or as a graph. <br>The Analytics Module can only RESPOND to those requests, meaning the Analytics Module can never send something to the frontend without being asked. Every communication is Initiated by the UI Module.
 
@@ -109,7 +109,7 @@ This picture illustrates the different routes of communication in the framework.
 ![alt text](static/img/tutorial/communication.png )
 
 
-### ** Analytics Module ** - a Flask/Python webserver 
+### **Analytics Module** - a Flask/Python webserver 
 
 The Analytics Module is the backend and has 
 - **separate routes (URLs) defined for each task** <br> When the UI Module sends a request to one of these, it parses the input parameters, performs calculations and maybe database queries and returns it's response to the UI Module.
