@@ -95,7 +95,7 @@ Unreal Engine is one of the industry leaders in the videogame world. We chose it
 
 ### **UI Module** - a jQuery and html website 
 
-**The UI Module ** is running in the browser of your local machine and can only **SEND GET and POST requests TO the Analytics Module.** <br>Think of the UI Module as the frontend of a website and the Analytics Module as it's backend. <br>A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the Analytics Module), await it's response and finally display the result as text or as a graph. <br>The Analytics Module can only RESPOND to those requests, meaning the Analytics Module can never send something to the frontend without being asked. Every communication is Initiated by the UI Module.
+**The UI Module** is running in the browser of your local machine and can only **SEND GET and POST requests TO the Analytics Module.** <br>Think of the UI Module as the frontend of a website and the Analytics Module as it's backend. <br>A User clicks on a button on the frontend, this causes the UI Server to send a post request to a specific URL (route) on the backend (the Analytics Module), await it's response and finally display the result as text or as a graph. <br>The Analytics Module can only RESPOND to those requests, meaning the Analytics Module can never send something to the frontend without being asked. Every communication is Initiated by the UI Module.
 
 Now here is what's special about the UI Module:
 
