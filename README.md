@@ -38,14 +38,14 @@ Performant visualization is key to discovering context in large graphs.
 
 ## **Installation: Quick Start**
 
-for a quick start, you can just [download the VRnet executable](url) and run viveNet.exe on your windows computer with a SteamVR compatible headset.
+for a quick start, you can just [download the VR Module executable](url) and run viveNet.exe on your windows computer with a SteamVR compatible headset.
 It comes preconfigured to connect to the other modules that we already installed on our server to make it easy for you to get a first impression. 
 It has the ability to upload your own datasets, but we don't recommend it. **Do NOT upload any sensitive data  here**, this is **only for demonstration purposes** and for the whole world to see. We don't guarantee your data's safety! If you want to work with your own data you should go with the [Stand Alone](#Installation-Stand-Alone) version
 
 ## **Installation: Stand Alone**
 
 However, if you want to implement your own datasets and functionalities, you can also **run everything localy on your machine (the SAFE option if you are dealing with sensitive data)** or run the Analytics Module and UI Module on a networkserver or cloud service (if you need scalability and processing power).<br>Here is a step by step guide how to do a local installation on a windows computer. Note that the Analytics Module and the UI Module can also run on a (linux) server,
-while the VRnet module needs to run on a windows 10 machine as gaming hardware is required for Virtual Reality which is best supported under windows.
+while the VR Module needs to run on a windows 10 machine as gaming hardware is required for Virtual Reality which is best supported under windows.
 
 ### **1.) Set up a MySql Database**
 
@@ -60,7 +60,7 @@ you have now a clone of our database on your local machine.
 - install [python >3.6,](https://www.python.org/downloads/) make sure its added to path variable
 - install [pip](https://pypi.org/project/pip/) for python
 
-- edit DataDiVR/DataServer/db_config.py to match the database host and user you created before and save
+- edit DataDiVR/Analytics_Module/db_config.py to match the database host and user you created before and save
 
 - right click on DataDiVR/Analytics_Module/runAnalytics_Module.ps1 -> "run with power shell" <br>![alt text](static/img/tutorial/runpowershell.png)
 
@@ -71,14 +71,14 @@ you are good to go, if there are errors you will need to install dependencies.
 
 - install [python >3.6,](https://www.python.org/downloads/) make sure its added to path variable
 - install [pip](https://pypi.org/project/pip/) for python
-- edit DataDiVR/UI_Module/static/js/ UI_ModuleConfig.js and set "dbprefix" to the address of your Analytics Module, here: 'http://127.0.0.1:1337' and save.
+- edit DataDiVR/UI_Module/static/js/ UI_Module_Config.js and set "dbprefix" to the address of your Analytics Module, here: 'http://127.0.0.1:1337' and save.
 
 - right click on DataDiVR/UI_Module/run_UI_Module.ps1 -> "run with power shell"
 
 - if the output of the console window that just opened ends with "Running on http://127.0.0.1:5000/"
 you are good to go, if there are errors you will need to install dependencies.
     
-### **4.) Download the [VRnet executable](url)** and extract it to "DataDiVR"
+### **4.) Download the [VR Module executable](url)** and extract it to "DataDiVR"
 - if you haven't already, make a Steam account and install [SteamVR](https://store.steampowered.com/app/250820/SteamVR/) and test your headset
 - edit DataDiVR/VRnet/viveNet/Content/data/UiServerConfig.txt and change the address to the one where your UI Module is, here http://127.0.0.1:5000/ 
 - run viveNet.exe
