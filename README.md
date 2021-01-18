@@ -38,7 +38,7 @@ Performant visualization is key to discovering context in large graphs.
 
 ## **Installation: Quick Start**
 
-for a quick start, you can just [download the VR Module executable](url) and run viveNet.exe on your windows computer with a SteamVR compatible headset.
+for a quick start, you can just [download the VR Module executable](https://menchelab.com/VRNetzer/VR_Module.zip) and run VR_Module.exe on your windows computer with a SteamVR compatible headset.
 It comes preconfigured to connect to the other modules that we already installed on our server to make it easy for you to get a first impression. 
 It has the ability to upload your own datasets, but we don't recommend it. **Do NOT upload any sensitive data  here**, this is **only for demonstration purposes** and for the whole world to see. We don't guarantee your data's safety! If you want to work with your own data you should go with the [Stand Alone](#Installation-Stand-Alone) version
 
@@ -55,7 +55,7 @@ while the VR Module needs to run on a windows 10 machine as gaming hardware is r
 
 you have now a clone of our database on your local machine.
 
-### **2.) Clone the [Analytics Module repository](url)** into a new folder somewhere on your computer called "DataDiVR"
+### **2.) Clone the [Analytics Module repository](https://github.com/menchelab/Analytics_Module)** into a new folder somewhere on your computer called "DataDiVR"
 
 - install [python >3.6,](https://www.python.org/downloads/) make sure its added to path variable
 - install [pip](https://pypi.org/project/pip/) for python
@@ -67,7 +67,7 @@ you have now a clone of our database on your local machine.
 - if the output of the console window that just opened ends with "Running on http://127.0.0.1:1337/"
 you are good to go, if there are errors you will need to install dependencies.
 
-### **3.) Clone the [UI Module repository](url)** into "DataDiVR"
+### **3.) Clone the [UI Module repository](https://github.com/menchelab/UI_Module/)** into "DataDiVR"
 
 - install [python >3.6,](https://www.python.org/downloads/) make sure its added to path variable
 - install [pip](https://pypi.org/project/pip/) for python
@@ -82,10 +82,10 @@ you are good to go, if there are errors you will need to install dependencies.
 - if the output of the console window that just opened ends with "Running on http://127.0.0.1:5000/"
 you are good to go, if there are errors you will need to install dependencies.
     
-### **4.) Download the [VR Module executable](url)** and extract it to "DataDiVR"
+### **4.) Download the [VR Module executable](https://menchelab.com/VRNetzer/VR_Module.zip)** and extract it to "DataDiVR"
 - if you haven't already, make a Steam account and install [SteamVR](https://store.steampowered.com/app/250820/SteamVR/) and test your headset
 - edit DataDiVR/VRnet/viveNet/Content/data/UiServerConfig.txt and change the address to the one where your UI Module is, here http://127.0.0.1:5000/ 
-- run viveNet.exe
+- run VR_Module.exe
 
 ## **DataDiVR Architecture Overview**
 
