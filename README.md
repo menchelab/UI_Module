@@ -71,7 +71,7 @@ you are good to go, if there are errors you will need to install dependencies.
 
 - install [python >3.6,](https://www.python.org/downloads/) make sure its added to path variable
 - install [pip](https://pypi.org/project/pip/) for python
-- edit DataDiVR/uiserver/static/js/DataServerConfig.js and set "dbprefix" to the address of your dataServer , here: 'http://127.0.0.1:1337' and save.
+- edit DataDiVR/uiserver/static/js/UI_Module_Config.js.js and set "dbprefix" to the address of your dataServer , here: 'http://127.0.0.1:1337' and save.
 
 - right click on DataDiVR/UiServer/runUIServer.ps1 -> "run with power shell"
 
@@ -278,7 +278,7 @@ function MyNewPostRequest(data) {
 }
 ```
 This is a blank POST request that calls the route we created before.
-`path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute"` is the target URL, dbprefix comes from `DataServerConfig.js` and `thisNamespace.namespace` is the name of the project. 
+`path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute"` is the target URL, dbprefix comes from `UI_Module_Config.js.js` and `thisNamespace.namespace` is the name of the project. 
 
 - also in dataDiVR_API.js, in the function `ue.interface.getSelection` put `MyNewPostRequest(data);` instead of `LogOnUIServer(data);`
 
