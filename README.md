@@ -282,14 +282,11 @@ function MyNewPostRequest(data) {
 }
 ```
 This is a blank POST request that calls the route we created before.
-<<<<<<< HEAD
+
 `path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute"` is the target URL, dbprefix comes from `UI_Module_Config.js` and `thisNamespace.namespace` is the name of the project. 
-=======
 `path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute"` is the target URL, dbprefix comes from `Analytics_ModuleConfig.js` and `thisNamespace.namespace` is the name of the project. 
->>>>>>> master
 
 - also in dataDiVR_API.js, in the function `ue.interface.getSelection` put `MyNewPostRequest(data);` instead of `LogOnUIServer(data);`
-
 
 ## Csv file formats ##
 
