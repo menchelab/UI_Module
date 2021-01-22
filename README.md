@@ -1,6 +1,6 @@
 ## **VRNetzer - A Virtual Reality Framework for Network Visualization and Analytics**
 
-![alt text](static/img/tutorial/VRNetzer_Fig_1b_notext.png)
+![alt text](static/img/tutorial/DataqDiVR_Fig_1b_notext.png)
 
 Performant visualization is key to discovering context in large graphs.
 
