@@ -293,6 +293,10 @@ This is a blank POST request that calls the route we created before.
 
 ## Csv file formats ##
 
+You can find examples of all used .csv formats [HERE](https://github.com/menchelab/Analytics_Module/tree/master/sample_inputs) to to use as templates for the formatting.
+
+**Note:** You need to assign unique node and attribute ID's if you upload your own data to a new project.
+
 **Node Lists** look like this:
 ```
 8473,0.4993,0.4544,0.640,188,20,26,100,3dportrait
@@ -302,7 +306,7 @@ where each line is a node with the following data:
 
 |8473|0.4993|0.4544|0.640|188|20|26|100|3dportrait|
 |---|---|---|---|---|---|---|---|---|
-|ID|X-Pos|Y-Pos|Z-Pos|R|G|B|A|Name|
+|NodeID|X-Pos|Y-Pos|Z-Pos|R|G|B|A|Name|
 
 **Note:** For now, you have to provide XYZ coordinates for the layout. The positions need to be normalised between 0 - 1
 
@@ -332,6 +336,21 @@ for now, only one link list per project is supported
 ```
 are a list of ID's separated by line breaks
 
+**Labels**
+
+|x_loc|y_loc|z_loc|text|namespace|
+|---|---|---|---|---|
+|0.5000000|0.5000000|0.5000000|" C E L L U L A R  C O M P O N E N T S"|5_cell|
+
+A simple way to add textlabels at certain positions to a specific layout (namespace)
+
+**Attributes**
+
+|node_id|attribute_id|namespace|name|description|
+|---|---|---|---|---|
+|16048|4416|DISEASE|"Down syndrome"|NULL|
+
+Every node id can be associated with several attributes
 
 ## **VRnet API Documentation**
 
