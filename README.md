@@ -1,6 +1,6 @@
 ## **VRNetzer - A Virtual Reality Framework for Network Visualization and Analytics**
 
-![alt text](static/img/tutorial/DataqDiVR_Fig_1b_notext.png)
+![alt text](static/img/tutorial/DataDiVR_Fig_1b_notext.png)
 
 Performant visualization is key to discovering context in large graphs.
 
@@ -295,7 +295,9 @@ This is a blank POST request that calls the route we created before.
 
 You can find examples of all used .csv formats [HERE](https://github.com/menchelab/Analytics_Module/tree/master/sample_inputs) to to use as templates for the formatting.
 
-**Note:** You need to assign unique node and attribute ID's if you upload your own data to a new project.
+**Note:** You need to assign **unique node and attribute ID's** if you upload your own data to a new project.
+<br>**Don't use commas** in string fields, as they are reserved delimiters.
+
 
 **Node Lists** look like this:
 ```
@@ -350,7 +352,8 @@ A simple way to add textlabels at certain positions to a specific layout (namesp
 |---|---|---|---|---|
 |16048|4416|DISEASE|"Down syndrome"|NULL|
 
-Every node id can be associated with several attributes
+Every node id can be associated with several attributes.
+**Note**
 
 ## **VRnet API Documentation**
 
