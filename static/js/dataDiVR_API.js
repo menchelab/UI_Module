@@ -496,7 +496,10 @@ function GetDbFileNames1() {
             // POPULATE UI DROPDOWN
             dbdata = response.slice(); //DEEP COPY !!!!
             logger(dbdata)
-
+            $('#namespaces').find('option').remove().end();
+            $('#namespaces').selectmenu('destroy').selectmenu({
+                style: 'dropdown'
+            });
             /*
             $('#layoutsB').append($('<option>', {value: "reeeeeee",text: "reeeeeee"}));
 
@@ -852,6 +855,11 @@ function GetDbSelections() {
         },
         dataType: "json",
         success: function (response) {
+
+            $('#selections').find('option').remove().end();
+            $('#selections').selectmenu('destroy').selectmenu({
+                style: 'dropdown'
+            });
 
             response.forEach(function (item) {
 

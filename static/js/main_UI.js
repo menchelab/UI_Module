@@ -568,17 +568,10 @@ $(document).ready(function () {
     });
 
     $(function () {
-        $("#MyNewButton").button();
-        $("#MyNewButton").click(function (event) {
+        $("#RefreshProjects").button();
+        $("#RefreshProjects").click(function (event) {
             event.preventDefault();
-
-            var out = {
-                "content": "somecoolName",
-                "route": "tutorial"
-            };
-            
-            ue4("GetSelection", out);    
-            
+            GetDbFileNames1();
         });
     });
     
