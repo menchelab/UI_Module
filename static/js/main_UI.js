@@ -185,10 +185,11 @@ $(document).ready(function () {
             //var name = "selection" + selcount;
             //ActivateVRkeyboard("saveSel");
             var out = {
-                "content": "somecoolName",
+                "content": "someOthercoolName",
                 "route": "saveSelection"
             };
             ue4("GetSelection", out);
+            
 
         });
     });

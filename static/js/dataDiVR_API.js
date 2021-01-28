@@ -34,6 +34,7 @@ ue.interface.getSelection = function (data) {
 
     switch (data.route) {
         case "saveSelection":
+             
             SaveSelectionDB(data);
             break;
         case "reLayout":
@@ -973,13 +974,13 @@ function LoadSelectionDB(id) {
             ue4("LoadSelectionDB", response);
             logger(response);
 
-            // var nodes = response;
-            // var jsonObj = {nodes:[],mode:"NEW"};
+            var nodes = response;
+            var jsonObj = {nodes:[],mode:"NEW"};
 
 
-            // jsonObj.nodes = nodes;
-            // jsonObj.mode = $('#selectMode').val();
-            //logger(jsonObj);
+            jsonObj.nodes = nodes;
+            jsonObj.mode = $('#selectMode').val();
+            logger(JSON.stringify(jsonObj));
 
             // document.getElementById("sResults").innerHTML = "FOUND " + response.nodes.length + " NODES FOR " + $('#searchInput1').text();
             // ue4("LoadSelectionDB", response);
