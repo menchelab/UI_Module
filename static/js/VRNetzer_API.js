@@ -704,7 +704,8 @@ function GetDbLabelList1(name, channel) {
                 ue4("LoadDbLabelListB", response);
             }
 
-            //logger(response);
+            
+            logger(response);
         },
         error: function (err) {
             logger(err);
