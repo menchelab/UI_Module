@@ -183,13 +183,14 @@ $(document).ready(function () {
             event.preventDefault();
             //selcount++;
             //var name = "selection" + selcount;
-            //ActivateVRkeyboard("saveSel");
-            var out = {
+            ActivateVRkeyboard("saveSel");
+            
+            /*var out = {
                 "content": "someOthercoolName",
                 "route": "saveSelection"
             };
             ue4("GetSelection", out);
-            
+            */
 
         });
     });

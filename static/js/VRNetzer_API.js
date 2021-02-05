@@ -43,9 +43,7 @@ ue.interface.getSelection = function (data) {
         case "GSEA":
             GSEASubSet(data);
             break;
-        case "tutorial":
-            MyNewPostRequest(data);
-            break;
+ 
 
     }
   
@@ -673,6 +671,7 @@ function GetDbLinkList1() {
             $('#spinner_load').hide("drop", {
                 direction: "down"
             }, "fast");
+            logger(response);
             //$('#projects-section').show();
         },
         error: function (err) {
