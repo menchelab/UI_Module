@@ -1,6 +1,6 @@
 /////// USER EDITABLE
 /////// HERE ARE BUTTON MAPPINGS FROM HTML FILE
-/////// AND CALLS TO FLASK AND DataDiVR_API
+/////// AND CALLS TO FLASK AND VRNetzer_API
 // add MAPPINGS TO UI ELEMENTS HERE //
 
 $(document).ready(function () {
