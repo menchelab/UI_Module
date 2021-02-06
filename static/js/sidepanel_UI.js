@@ -1135,7 +1135,7 @@ $(document).ready(function () {
                 json.variants.push(varbuttons[i].id);
             }
 
-            //logger(json)
+            /////logger(json)
             juliaRw(json);
             //ue4("StartRandomWalk", restartpr);
 
@@ -1148,7 +1148,7 @@ $(document).ready(function () {
         $("#savePanel").button();
         $("#savePanel").click(function (event) {
             event.preventDefault();
-            logger(rwJuliaResponse);
+            ///logger(rwJuliaResponse);
             // collect dashboarddata here
             dashboardData.pname = "get name";
             dashboardData.pdata = "......";
@@ -1163,7 +1163,7 @@ $(document).ready(function () {
                dashboardData.myNodes.push(thisnode);
                
             }
-            logger(dashboardData);
+            ///logger(dashboardData);
             // send it to server
             SavePanelData(dashboardData);
         });
@@ -1184,9 +1184,9 @@ $(document).ready(function () {
                 }
 
                 //urlstring.concat("&attribute_id=");
-                //logger(buttons[i].value);
+                /////logger(buttons[i].value);
             }
-            logger(urlstring);
+            ///logger(urlstring);
             GetNodesForAttributes(urlstring);
         });
     });
@@ -1198,7 +1198,7 @@ $(document).ready(function () {
         $("#pphenclear").click(function (event) {
             event.preventDefault();
             $("#pphenobox").empty();
-            // logger(json);
+            // ///logger(json);
         });
     });
 
@@ -1218,7 +1218,7 @@ $(document).ready(function () {
                 ]
             };
             ue4("ui", json);
-            // logger(json);
+            // ///logger(json);
         });
     });
 
@@ -1232,7 +1232,7 @@ $(document).ready(function () {
             event.preventDefault();
             //var json = {target:"sidepanel1", funkt:"addPhen", nodes:[{name: $("#searchInput1").text() , id: $("#searchInput1").attr("searchID")}]};
             ue4("addMyGene", "trigger");
-            // logger(json);
+            // ///logger(json);
         });
     });
 
@@ -1242,7 +1242,7 @@ $(document).ready(function () {
             event.preventDefault();
             //var json = {target:"sidepanel1", funkt:"addPhen", nodes:[{name: $("#searchInput1").text() , id: $("#searchInput1").attr("searchID")}]};
             $("#seedbox").empty();
-            // logger(json);
+            // ///logger(json);
         });
     });
 
@@ -1252,7 +1252,7 @@ $(document).ready(function () {
             event.preventDefault();
             //var json = {target:"sidepanel1", funkt:"addPhen", nodes:[{name: $("#searchInput1").text() , id: $("#searchInput1").attr("searchID")}]};
             ue4("GetSeedsFromSelection", "trigger");
-            // logger(json);
+            // ///logger(json);
         });
     });
 

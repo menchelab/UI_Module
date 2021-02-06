@@ -101,13 +101,13 @@ function drawit1(data) {
                             .attr("cy", function(d) { return d.y; });
                       }
       
-      logger("drawit1 ran");
+      ///logger("drawit1 ran");
       
           function dragstarted(d) {
           if (!d3.event.active) simulation.alphaTarget(0.3).restart();
           d.fx = d.x;
           d.fy = d.y;
-          logger( d.id);
+          ///logger( d.id);
         }
         
         function dragged(d) {

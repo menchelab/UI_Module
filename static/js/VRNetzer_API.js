@@ -21,7 +21,7 @@ var rwJuliaResponse = "";
 (ue.interface), (ue4 = ue.interface.broadcast);
 ////  API DEFENITION
 //// DONT TOUCH THIS FILE
-function logger(message) {
+function ///logger(message) {
     console.log(message);
     ue4("log", message);
 }
@@ -34,7 +34,7 @@ ue.interface.getSelection = function (data) {
 
     switch (data.route) {
         case "saveSelection":
-            //logger(data);
+            /////logger(data);
             SaveSelectionDB(data);
             break;
         case "reLayout":
@@ -51,18 +51,18 @@ ue.interface.getSelection = function (data) {
 };
 
 ue.interface.getRandomWalkResult = function (data) {
-    logger(data);
-    // logger(data.nodes[0].frequency + " id:" + data.nodes[0].id );
+    ///logger(data);
+    // ///logger(data.nodes[0].frequency + " id:" + data.nodes[0].id );
     //input = JSON.parse(data);
-    // logger("getRWtriggered but DEACTIVATED for JULIARW");
+    // ///logger("getRWtriggered but DEACTIVATED for JULIARW");
 
     reloadForceLayout(data);
     drawBarChart(data.nodes);
 };
 
 ue.interface.updateSeeds = function (data) {
-    //  logger(data);
-    //  logger("SEEDS");
+    //  ///logger(data);
+    //  ///logger("SEEDS");
 
     for (var i = 0; i < 100 && i < data.seeds.length; i++) {
 
@@ -73,8 +73,8 @@ ue.interface.updateSeeds = function (data) {
 };
 
 ue.interface.addMyGene = function (data) {
-    // logger(data);
-    // logger("ADD MY GENE");
+    // ///logger(data);
+    // ///logger("ADD MY GENE");
 
 
     createButton(data.name, data.id, "MyNodesbox");
@@ -92,9 +92,9 @@ ue.interface.randomWalkPy = function (data) {
     var numSeeds = data.node_ids.length;
     data.variants = [];
     payload = JSON.stringify(data);
-    logger(numSeeds);
+    ///logger(numSeeds);
 
-    logger(payload);
+    ///logger(payload);
 
     path = dbprefix + "/api/" + thisNamespace.namespace + "/node/random_walk";
     $.ajax({
@@ -114,12 +114,12 @@ ue.interface.randomWalkPy = function (data) {
                 direction: "down"
             }, "fast");
             $('#spinner').hide();
-            //logger(response);
+            /////logger(response);
             $('#rwLabel').text(response.nodes.length + " NODES FOUND");
-            logger(response);
+            ///logger(response);
         },
         error: function (err) {
-            logger(err);
+            ///logger(err);
             $('#rwsection').show("drop", {
                 direction: "down"
             }, "fast");
@@ -137,7 +137,7 @@ ue.interface.shortestPathPoint = function (data) {
 
     jdata = JSON.parse(data);
 
-    logger(jdata.id + " " + jdata.target + " " + jdata.name);
+    ///logger(jdata.id + " " + jdata.target + " " + jdata.name);
 
     if (jdata.target == "p1") {
         $('#p1_shortestPath').text(jdata.name);
@@ -156,7 +156,7 @@ ue.interface.updateNodePanel = function (data) {
     //payload = JSON.stringify(data);
     nodePanelRequest(data.id);
 
-    //logger(data.id);
+    /////logger(data.id);
 
 
 
@@ -192,13 +192,13 @@ function nodePanelRequest(data){
             }
             $("#ifunbox").text(ftext);
 
-            logger(response[0].tissue);
+            ///logger(response[0].tissue);
             drawNodeBarChart(response[0].tissue);
 
-            logger(response);
+            ///logger(response);
         },
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     });
@@ -207,9 +207,9 @@ function nodePanelRequest(data){
 var pp_count = 0;
 
 ue.interface.powerpoint = function (data) {
-    //logger(data);
+    /////logger(data);
     jdata = JSON.parse(data);
-    logger(data.i);
+    ///logger(data.i);
     if (pp_count > 0) {
         pp_count = pp_count + jdata.i;
         var path = "/static/img/powerpoint/Slide" + pp_count + ".jpg";
@@ -219,13 +219,13 @@ ue.interface.powerpoint = function (data) {
     // i
     //dummydata = '{"node_ids":[12149,108],"selection_name":"somAARGrgARGagname"}';
     //input = JSON.parse(data);
-    //logger(input);
+    /////logger(input);
 
 
 };
 
 ue.interface.addPhen = function (data) {
-    logger(data.nodes[0]);
+    ///logger(data.nodes[0]);
     createButton(data.nodes[0].name, data.nodes[0].id, "pphenobox");
 
 };
@@ -242,12 +242,12 @@ function juliaRw(data) {
     var numSeeds = data.node_ids.length;
     //data.variants = [13991,2313,7036,16851,17944,5766];
     payload = JSON.stringify(data);
-    //logger(numSeeds);
+    /////logger(numSeeds);
 
-    //logger(payload);
+    /////logger(payload);
 
     path = dbprefix + "/api/ppi/node/random_walk_dock2";
-    //logger(path);
+    /////logger(path);
 
     $.ajax({
         type: "POST",
@@ -266,13 +266,13 @@ function juliaRw(data) {
                 direction: "down"
             }, "fast");
             $('#pspinner_load').hide();
-            //logger(response);
+            /////logger(response);
             //$('#rwLabel').text(response.length + " NODES FOUND");
-            //logger(response);
+            /////logger(response);
 
             //response.links = [];
             reloadForceLayout(response);
-            //logger(response.nodes[0].symbol);
+            /////logger(response.nodes[0].symbol);
             var clippedNodes = [];
             var nodesJson = {
                 "seeds": [],
@@ -282,7 +282,7 @@ function juliaRw(data) {
             };
 
             for (var i = 0; i < response.nodes.length; i++) {
-                //logger(response.nodes[i].group);
+                /////logger(response.nodes[i].group);
                 var thisnode = {
                     "node_id": response.nodes[i].id
                 };
@@ -296,14 +296,14 @@ function juliaRw(data) {
                     nodesJson.linker.push(thisnode);
                 }
             }
-            logger(nodesJson);
+            ///logger(nodesJson);
             drawBarChart(clippedNodes);
 
             ue4("julia", nodesJson);
 
         },
         error: function (err) {
-            logger(err);
+            ///logger(err);
             /*         $('#rwsection').show( "drop", { direction: "down" }, "fast" );
             $('#spinner').hide();
             $('#rwLabel').text("RANDOMWALK - ERROR"); */
@@ -316,7 +316,7 @@ function juliaRw(data) {
 function shortestPath() {
 
     path = dbprefix + "/api/" + thisNamespace.namespace + "/node/shortest_path?from=" + p1 + "&to=" + p2;
-    logger(path);
+    ///logger(path);
     $('#ShortestPathSection').hide("drop", {
         direction: "down"
     }, "fast");
@@ -331,14 +331,14 @@ function shortestPath() {
         },
         dataType: "json",
         success: function (response) {
-            //logger(response);
+            /////logger(response);
             $('#spLabel').empty();
             ue4("shortestPathResponse", response);
             for (var i = 0; i < response.nodes.length; i++) {
                 createButton(response.nodes[i].symbol, response.nodes[i].node_id, "spLabel");
             }
 
-            //logger(response);
+            /////logger(response);
             $('#spinner').hide("drop", {
                 direction: "down"
             }, "fast");
@@ -349,7 +349,7 @@ function shortestPath() {
         },
 
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
             $('#ShortestPathSection').show("drop", {
                 direction: "down"
@@ -368,25 +368,25 @@ ue.interface.VRkeyboard = function (payload) {
     // Call function dynamically
     var fnName = input.route + "Trigger"; ;
     window[fnName](input);
-    logger("VRKeyboard triggered:" + fnName);
+    ///logger("VRKeyboard triggered:" + fnName);
 };
 
 // TEXT INPUT FIELDS
 function searchInput1Trigger(data) {
-    //logger(data);
+    /////logger(data);
     // SET BUTTON TEXT
     var element = "#" + data.route;
     $(element).html(data.content);
-    //logger(data.content);
+    /////logger(data.content);
     GetDbSearchTerms(data.content, $('#searchAttribute1').val());
 
     /*     if (data.end == 1){
-    logger(data.route + " Event Fired");
+    ///logger(data.route + " Event Fired");
     } */
 }
 
 function SaveSearchTrigger(data) {
-    logger(data);
+    ///logger(data);
     // SET BUTTON TEXT
     //var element = "#" + data.route;
     //$(element).html(data.content);
@@ -394,13 +394,13 @@ function SaveSearchTrigger(data) {
 
     if (data.end == 1) {
         ue4("getSelection", data.content);
-        logger(data.route + " Event Fired");
+        ///logger(data.route + " Event Fired");
     }
 }
 
 function saveSelTrigger(data) {
     data.route = "saveSelection";
-    logger(data);/* 
+    ///logger(data);/* 
     var element = "#" + data.route;
     $(element).html(data.content); */
 
@@ -409,14 +409,14 @@ function saveSelTrigger(data) {
 
         ue4("getSelection", data);
         //var dummySelData =  {"selection_name": data.content,"node_ids":[1,2,3,4,5,99,666,1337]};
-        logger(data.route + " Event Fired");
+        ///logger(data.route + " Event Fired");
     }
 }
 
 ue.interface.setFilenames = function (payload) {
     input = JSON.parse(payload);
-    //logger("setFilenames says:");
-    //logger(input.nodes[1]);
+    /////logger("setFilenames says:");
+    /////logger(input.nodes[1]);
 
     // POPULATE UI DROPDOWN
     input.nodes.forEach(function (item) {
@@ -441,14 +441,14 @@ var thisNamespace;
 
 function ActivateVRkeyboard(route) {
     ue4("VRkeyboard", route);
-    logger("vrkeyboard");
+    ///logger("vrkeyboard");
 }
 
 ////put functions that POST to Flask HERE vvv
 function UpdateNamespace(name) {
 
     thisNamespace = dbdata.find(o => o.namespace === name);
-    logger(thisNamespace);
+    ///logger(thisNamespace);
 
     //CLEAR LAYOUT DROPDOWN
     $('#layouts').find('option').remove().end();
@@ -492,10 +492,10 @@ function GetDbFileNames1() {
         },
         dataType: "json",
         success: function (response) {
-            //logger(response);
+            /////logger(response);
             // POPULATE UI DROPDOWN
             dbdata = response.slice(); //DEEP COPY !!!!
-            logger(dbdata)
+            ///logger(dbdata)
             $('#namespaces').find('option').remove().end();
             $('#namespaces').selectmenu('destroy').selectmenu({
                 style: 'dropdown'
@@ -512,7 +512,7 @@ function GetDbFileNames1() {
             $('#layoutsB').val(response[0].layouts[0]);
             //$("#layouts").selectmenu("refresh");                          //AND SHOW
             $("#layoutsB").selectmenu("refresh");
-            logger("REEEEEEEE");
+            ///logger("REEEEEEEE");
              */
             response.forEach(function (item) {
                 $('#namespaces').append($('<option>', {
@@ -529,7 +529,7 @@ function GetDbFileNames1() {
         },
 
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     });
@@ -556,11 +556,11 @@ function LogOnUIServer(data) {
         },
         success: function (response) {
 
-            //logger(response);
+            /////logger(response);
         },
         error: function (err) {
-            logger(err);
-            //logger(data);
+            ///logger(err);
+            /////logger(data);
         }
     });
     
@@ -570,7 +570,7 @@ function LogOnUIServer(data) {
 function MyNewPostRequest(data) {
 
     payload = JSON.stringify(data);
-    //logger(payload);
+    /////logger(payload);
     path = dbprefix + "/api/" + thisNamespace.namespace + "/MyNewRoute";
     $.ajax({
         type: "POST",
@@ -583,11 +583,11 @@ function MyNewPostRequest(data) {
         },
         success: function (response) {
 
-            logger(response);
+            ///logger(response);
         },
         error: function (err) {
-            logger(err);
-            logger(data);
+            ///logger(err);
+            ///logger(data);
         }
     });
 
@@ -620,7 +620,7 @@ function GetDbNodeList1(name, channel) {
             } else if (channel == "B") {
                 ue4("LoadDbNodeListB", response);
             }
-            logger(response);
+            ///logger(response);
             GetDbLabelList1(name, channel);
             
             $('#spinner_load').hide("drop", {
@@ -630,12 +630,12 @@ function GetDbNodeList1(name, channel) {
             $('#projects-section').show();
             /*             response.forEach(function(item){
 
-            logger(item["a"][0])
+            ///logger(item["a"][0])
             }); */
         },
 
         error: function (err) {
-            logger(err);
+            ///logger(err);
             
             $('#spinner_load').hide("drop", {
                 direction: "down"
@@ -672,7 +672,7 @@ function GetDbLinkList1() {
             $('#spinner_load').hide("drop", {
                 direction: "down"
             }, "fast");
-            logger(response);
+            ///logger(response);
             //$('#projects-section').show();
         },
         error: function (err) {
@@ -680,7 +680,7 @@ function GetDbLinkList1() {
                 direction: "down"
             }, "fast");
             //$('#projects-section').show();
-            logger(err);
+            ///logger(err);
         }
 
     });
@@ -705,10 +705,10 @@ function GetDbLabelList1(name, channel) {
             }
 
             
-            logger(response);
+            ///logger(response);
         },
         error: function (err) {
-            logger(err);
+            ///logger(err);
         }
     });
 }
@@ -720,7 +720,7 @@ function GetDbSearchTerms(name, namespace) {
         path = dbprefix + "/api/" + thisNamespace.namespace + "/node?prefix=" + name;
 
         //api/ppi/node?prefix=as
-        logger(path);
+        ///logger(path);
         if (name.length > 1) {
             $.ajax({
                 type: "GET",
@@ -741,24 +741,24 @@ function GetDbSearchTerms(name, namespace) {
                     clearButtons("autocomp");
 
                     response.forEach(function (item) {
-                        //logger(item.name + " " + item.symbol + " " + item.id + "autocomp");
+                        /////logger(item.name + " " + item.symbol + " " + item.id + "autocomp");
                         createNodeButton(item.name, item.symbol, item.id, "autocomp");
                         // createNodeButton(response.nodes[i].name,response.nodes[i].symbol,response.nodes[i].node_id,"ResultList")
                         //$('#layouts').append($('<option>', {value: item,text: item}));
                     });
 
-                    logger(response);
+                    ///logger(response);
                 },
 
                 error: function (err) {
-                    logger(err);
+                    ///logger(err);
 
                 }
             });
         }
     } else {
         path = dbprefix + "/api/" + thisNamespace.namespace + "/attribute/?prefix=" + name + "&namespace=" + namespace;
-        logger(path);
+        ///logger(path);
 
         if (name.length > 1) {
             $.ajax({
@@ -784,11 +784,11 @@ function GetDbSearchTerms(name, namespace) {
                         //$('#layouts').append($('<option>', {value: item,text: item}));
                     });
 
-                    logger(response);
+                    ///logger(response);
                 },
 
                 error: function (err) {
-                    logger(err);
+                    ///logger(err);
 
                 }
             });
@@ -837,7 +837,7 @@ function createNodeButton(Bname, Bsym, Bid, Parent) {
         $("#searchInput1").text(Bname);
         $("#searchInput1").attr("searchID", Bid);
         ue4("activateNode", Bid);
-        // logger(Bid);
+        // ///logger(Bid);
         //console.log(Bname + " " + Bid + " " + Parent);
     });
 }
@@ -880,11 +880,11 @@ function GetDbSelections() {
             //$('#selections').val( response[0].namespace);
             //$("#selections").selectmenu("refresh");
 
-            logger(response);
+            ///logger(response);
         },
 
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     });
@@ -895,7 +895,7 @@ function GetDbSelections() {
 function SimpleSearch(id) {
 
     path = dbprefix + "/api/" + thisNamespace.namespace + "/node/search?subject0=attribute&object0=" + id;
-    logger(path);
+    ///logger(path);
     $.ajax({
         type: "GET",
         url: path,
@@ -930,12 +930,12 @@ function SimpleSearch(id) {
                 createNodeButton(response.nodes[i].name, response.nodes[i].symbol, response.nodes[i].node_id, "ResultList");
 
             }
-            logger(response);
+            ///logger(response);
 
         },
 
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     });
@@ -946,8 +946,8 @@ function SimpleSearch(id) {
 function SaveSelectionDB(data) {
 
     payload = JSON.stringify(data);
-    logger("saveSelectionDB says:");
-    logger(payload);
+    ///logger("saveSelectionDB says:");
+    ///logger(payload);
     path = dbprefix + "/api/" + thisNamespace.namespace + "/selection/create";
     $.ajax({
         type: "POST",
@@ -960,11 +960,11 @@ function SaveSelectionDB(data) {
         },
         success: function (response) {
 
-            logger(response);
+            ///logger(response);
         },
         error: function (err) {
-            logger(err);
-            logger(data);
+            ///logger(err);
+            ///logger(data);
         }
     });
     //event.preventDefault();
@@ -973,7 +973,7 @@ function SaveSelectionDB(data) {
 function LoadSelectionDB(id) {
 
     path = dbprefix + "/api/" + thisNamespace.namespace + "/node?attribute_id=" + id;
-    //logger(path);
+    /////logger(path);
     $.ajax({
         type: "GET",
         url: path,
@@ -986,7 +986,7 @@ function LoadSelectionDB(id) {
 
             response.mode = $('#selectMode').val();
             ue4("LoadSelectionDB", response);
-            logger(response);
+            ///logger(response);
 
             var nodes = response;
             var jsonObj = {nodes:[],mode:"NEW"};
@@ -994,7 +994,7 @@ function LoadSelectionDB(id) {
 
             jsonObj.nodes = nodes;
             jsonObj.mode = $('#selectMode').val();
-            logger(JSON.stringify(jsonObj));
+            ///logger(JSON.stringify(jsonObj));
 
             // document.getElementById("sResults").innerHTML = "FOUND " + response.nodes.length + " NODES FOR " + $('#searchInput1').text();
             // ue4("LoadSelectionDB", response);
@@ -1013,7 +1013,7 @@ function LoadSelectionDB(id) {
         },
 
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     });
@@ -1025,7 +1025,7 @@ function GetNodesForAttributes(instring) {
 
     path = dbprefix + "/api/ppi/node?" + instring;
 
-    logger(path);
+    ///logger(path);
     $.ajax({
         type: "GET",
         url: path,
@@ -1036,7 +1036,7 @@ function GetNodesForAttributes(instring) {
         },
         dataType: "json",
         success: function (response) {
-            logger(response);
+            ///logger(response);
             // response.mode = $('#searchMode1').val();
 
             // document.getElementById("sResults").innerHTML = "FOUND " + response.nodes.length + " NODES FOR " + $('#searchInput1').text();
@@ -1067,7 +1067,7 @@ function GetNodesForAttributes(instring) {
         },
 
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     });
@@ -1099,11 +1099,11 @@ function ReLayoutSubSet(data) {
         },
         success: function (response) {
 
-            logger(response);
+            ///logger(response);
             ue4("reLayout", response);
         },
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     });
@@ -1139,12 +1139,12 @@ function GSEASubSet(data) {
         },
         success: function (response) {
 
-            logger(response);
+            ///logger(response);
             //ue4("reLayout", response);
             drawGSEABarChart(response);
         },
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     });
@@ -1154,7 +1154,7 @@ function GSEASubSet(data) {
 
 function LoadPanelData() {
     path = dbprefix + "/api/ppi/import/results2swimmer";
-    logger(path);
+    ///logger(path);
     
     $.ajax({
         type: "GET",
@@ -1165,12 +1165,12 @@ function LoadPanelData() {
         },
         dataType: "json",
         success: function (response) {
-            logger(response);
+            ///logger(response);
             populateSidePanel(response)
         },
 
         error: function (err) {
-            logger(err);
+            ///logger(err);
 
         }
     }); 
@@ -1178,16 +1178,16 @@ function LoadPanelData() {
 }
 
 function populateSidePanel(data) {
-    logger(data.pname);
+    ///logger(data.pname);
 }
 
 function SavePanelData(data) {
 
     payload = JSON.stringify(data);
-    logger(data);
+    ///logger(data);
     //path = dbprefix + "/api/ppi/node/sub_layout";
     path = dbprefix + "/api/ppi/export/results";
-    //logger(path);
+    /////logger(path);
         $.ajax({
         type: "POST",
         url: path,
@@ -1199,11 +1199,11 @@ function SavePanelData(data) {
         },
         success: function (response) {
 
-            logger(response);
+            ///logger(response);
         },
         error: function (err) {
-            logger(err);
-            logger(data);
+            ///logger(err);
+            ///logger(data);
         }
     });
 
@@ -1226,5 +1226,5 @@ function ExportPdf() {
 
         kendo.drawing.pdf.saveAs(group, "Exported.pdf")
     });
-    logger("saving");
+    ///logger("saving");
 }

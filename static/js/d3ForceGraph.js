@@ -121,14 +121,14 @@ function drawit(data) {
         });
     }
 
-    logger("drawit ran");
+    ///logger("drawit ran");
 
     function dragstarted(d) {
         if (!d3.event.active)
             simulation.alphaTarget(0.3).restart();
         d.fx = d.x;
         d.fy = d.y;
-        logger(d.id);
+        ///logger(d.id);
         $("#graphDisplay").text(d.symbol);
         ue4("activateNode", d.id);
     }

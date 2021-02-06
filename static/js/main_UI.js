@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     $('#namespaces').on('selectmenuselect', function () {
         var name = $('#namespaces').find(':selected').text();
-        //logger(name);
+        /////logger(name);
         UpdateNamespace(name);
 
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     $('#layouts').on('selectmenuselect', function () {
         var name = $('#layouts').find(':selected').text();
-        //logger(name);
+        /////logger(name);
         GetDbNodeList1(name, "A");
     });
 
@@ -151,7 +151,7 @@ $(document).ready(function () {
 
     $('#selectMode').on('selectmenuselect', function () {
 
-        logger($('#selectMode').val());
+        ///logger($('#selectMode').val());
     });
 
     $(function () {
@@ -161,7 +161,7 @@ $(document).ready(function () {
     $('#selections').on('selectmenuselect', function () {
         var name = $('#selections').find(':selected').val();
         ue4("loadSelection", "loadSelection");
-        logger(name);
+        ///logger(name);
     });
 
     $(function () {
@@ -169,7 +169,7 @@ $(document).ready(function () {
         $("#LoadSelection").click(function (event) {
             event.preventDefault();
             var name = $('#selections').find(':selected').val();
-            logger(name);
+            ///logger(name);
             LoadSelectionDB(name);
 
         });
@@ -327,14 +327,14 @@ $(document).ready(function () {
         var name = $('#searchAttribute1').find(':selected').text();
         //if in mode search node, hide button row above
         if (name == "NODE") {
-            logger("nodes selected");
+            ///logger("nodes selected");
             $('#searchGroup1').hide("drop", {
                 direction: "down"
             }, "fast");
         } else {
             $('#searchGroup1').show("fold", 100);
         }
-        //logger("Attribute says: "+ name);
+        /////logger("Attribute says: "+ name);
     });
 
     $(function () {
@@ -394,7 +394,7 @@ $(document).ready(function () {
             event.preventDefault();
             //var span_Text = document.getElementById("restart_probability").innerText;
             var restartpr = $("#slider-restart_probability").slider("value") / 100;
-            logger(restartpr)
+            ///logger(restartpr)
             ue4("StartRandomWalk", restartpr);
 
             //reloadForceLayout (inputdata1);
@@ -416,7 +416,7 @@ $(document).ready(function () {
             event.preventDefault();
             shortestPath();
             //ue4('shortestPathTrigger','start');
-            logger("shortest Path clicked");
+            ///logger("shortest Path clicked");
         });
     });
     
@@ -426,7 +426,7 @@ $(document).ready(function () {
             event.preventDefault();
             $('#spLabel').empty();
             ue4('shortestPathClear','start');
-            logger("shortest Path clicked");
+            ///logger("shortest Path clicked");
         });
     });
 
@@ -435,7 +435,7 @@ $(document).ready(function () {
         $("#p1_shortestPath").click(function (event) {
             event.preventDefault();
             ue4('shortestPathPoint', 'p1');
-            //logger("shortest Path clicked");
+            /////logger("shortest Path clicked");
         });
     });
 
@@ -444,7 +444,7 @@ $(document).ready(function () {
         $("#p2_shortestPath").click(function (event) {
             event.preventDefault();
             ue4('shortestPathPoint', 'p2');
-            //logger("shortest Path clicked");
+            /////logger("shortest Path clicked");
         });
     });
 
@@ -591,7 +591,7 @@ $(document).ready(function () {
     slide: function( event, ui ) {
     // $( "#slidevalue" )
     //.val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-    logger(ui.values[ 0 ] );
+    ///logger(ui.values[ 0 ] );
     ue4("print", ui.values[ 0 ]);
     }
     }); */
