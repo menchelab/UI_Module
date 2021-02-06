@@ -54,6 +54,8 @@
                                             src="{{ url_for('static', filename='img/active_pin.png') }}" /></a></li>
                             <li><a href="#tabs-6"><img draggable="false" onmousedown="return false" height='40' width='40'
                                             src="{{ url_for('static', filename='img/active_gears.png') }}" /></a></li>
+
+ 
                             <!-- <li><a href="#tabs-7"><img draggable="false" onmousedown="return false" height='40' width='40'
                                             src="{{ url_for('static', filename='img/active_pub.png') }}" /></a></li> -->
                         </ul>
@@ -63,7 +65,7 @@
                                 <div class="swagLabel" >PROJECTS</div>
                                 <select name="namespaces" id="namespaces">
                                 </select>
-                                <button id="RefreshProjects">REFRESH</button>
+                                <button id="RefreshProjects"><img src="{{ url_for('static', filename='img/refresh.png') }}"></button>
 
                                 <div class="swagLabel"  > LAYOUTS
                                 
@@ -121,10 +123,7 @@
                             <div class="swagLabel">LIGHT</div>
                             <div id="slider-light"></div>
                             <!-- BUTTONS -->
-                            <div class="widget">
-                                <label for="left_handed">LEFT HANDED</label>
-                                <input type="checkbox" name="left_handed" id="left_handed">
-                                </div>
+                             
 
                             </div>
                             <div id="tabs-4">
@@ -145,8 +144,8 @@
 
                                 <p>
 
-                                    <div class="swagLabel" id="sResults">SEARCH RESULTS</div>
-                                    <div id="autocomp">
+                                    <div class="swagLabel" id="sResults"  >SEARCH RESULTS</div>
+                                    <div id="autocomp" style="max-height:300px;overflow-y:auto;">
                                     </p>
                                 </div>
                             </div>
@@ -155,18 +154,21 @@
 
                                 <div class="swagLabel" id="ResultsLabel" > RESULTS</div>
 
-                                <div id="ResultList">
+                                <div id="ResultList" style="max-height:300px;overflow-y:auto;">
                                 </div>
                             </div>
                             <div id="tabs-6">
+
+                                <div  style="max-height:300px;overflow-y:auto;">
+
                                 <div class="swagLabel" > RANDOM WALK</div>
                                 <div id = "rwsection">
-                                    <div class="swagLabel" id="restart_probability"  > RESTART PROBABILITY:</div>
+                                    <div class="swagLabelSmall" id="restart_probability"  > RESTART PROBABILITY:</div>
                                     <div id="slider-restart_probability"></div>
                                     <div class="widget">
                                         <button id="start_randomwalk_button">START RANDOMWALK</button>
                                         <button id="clear_randomwalk_button">CLEAR</button>
-                                        <div class="swagLabel" id = "rwLabel"  > ...</div>
+                                        <div class="swagLabel" id = "rwLabel"  >__________________________________</div>
                                     </div>
                                 </div>
 
@@ -174,26 +176,35 @@
 
                                 <p> </p>
                                 <div class="swagLabel" id="ShortestPathSection" >SHORTEST PATH
-                                    <p> </p>
-                                    <p>
+                                     
+                                    <p></p>
                                         <button id="p1_shortestPath" data-value = -1>P1</button>
                                         <button id="p2_shortestPath" data-value = -1>P2</button>
-                                    </p>
+                                    
                                     <button id="start_shortestPath">START</button><button id="clear_shortestPath">CLEAR</button>
-                                    <div class="swagLabel" id="spLabel" >...</div>
-
+                                    <div class="swagLabel" id="spLabel" ></div>
+                                    <div class="swagLabel" >__________________________________</div>
+                                    
                                     <!-- <svg width="512" height="600"></svg> -->
                                     <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/d3ForceGraph.js') }}"></script> -->
                                 </div>
-
-                                <div class="swagLabelSmall" >ISOLATE SELECTION</div>
+                                <p></p>
+                                <div class="swagLabel" >ISOLATE SELECTION</div>
+                                <p></p>
                                 <button name="test" id="test">ISOLATE</button>
                                 <button id="exitIsolate"> EXIT </button> 
-                                <div class="swagLabelSmall" >LINKFADE</div>
+                                <div class="swagLabel" >__________________________________</div>
+                                <p> </p>
+                                <div class="swagLabel" >LINKFADE</div>
+                                <p> </p>
                                 <button id="linkfade"> ON </button> 
+                                <div class="swagLabel" >__________________________________</div>
+                                <p> </p>
+                                <div class="swagLabel" >RE-LAYOUT</div>
                                 <p> </p>
                                 <button name="reLayout" id="reLayout">RE-LAYOUT</button>
-
+                                <div class="swagLabel" >__________________________________</div>
+                                <p> </p>
 
                                 <div class="swagLabel" id="GSEASection" >GSEA
                                     <p> </p>
@@ -206,8 +217,9 @@
                                                
                                 </div>
 
-
+                                </div>
                             </div>
+
                             <div id="tabs-7">
              
                             </div>

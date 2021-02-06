@@ -919,7 +919,13 @@ function SimpleSearch(id) {
 
             }); */
 
-            for (var i = 0; i < 50 && i < response.nodes.length; i++) {
+            response.nodes.sort(function (a, b) {
+                var x = a.symbol.toLowerCase(),
+                y = b.symbol.toLowerCase();
+                return x < y ? -1 : x > y ? 1 : 0;
+            });
+
+            for (var i = 0; i < 400 && i < response.nodes.length; i++) {
 
                 createNodeButton(response.nodes[i].name, response.nodes[i].symbol, response.nodes[i].node_id, "ResultList");
 
