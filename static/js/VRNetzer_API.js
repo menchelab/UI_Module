@@ -34,7 +34,7 @@ ue.interface.getSelection = function (data) {
 
     switch (data.route) {
         case "saveSelection":
-             
+            //logger(data);
             SaveSelectionDB(data);
             break;
         case "reLayout":
@@ -399,14 +399,15 @@ function SaveSearchTrigger(data) {
 }
 
 function saveSelTrigger(data) {
-    /*     logger(data);
+    data.route = "saveSelection";
+    logger(data);/* 
     var element = "#" + data.route;
     $(element).html(data.content); */
 
     if (data.end == 1) { //USER PRESSED ENTER KEY
         // Get Selection from UE4 somehow
 
-        ue4("getSelection", data.content);
+        ue4("getSelection", data);
         //var dummySelData =  {"selection_name": data.content,"node_ids":[1,2,3,4,5,99,666,1337]};
         logger(data.route + " Event Fired");
     }
@@ -939,7 +940,8 @@ function SimpleSearch(id) {
 function SaveSelectionDB(data) {
 
     payload = JSON.stringify(data);
-    //logger(payload);
+    logger("saveSelectionDB says:");
+    logger(payload);
     path = dbprefix + "/api/" + thisNamespace.namespace + "/selection/create";
     $.ajax({
         type: "POST",

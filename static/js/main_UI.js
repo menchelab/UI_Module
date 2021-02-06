@@ -181,17 +181,8 @@ $(document).ready(function () {
         $("#saveSel").button();
         $("#saveSel").click(function (event) {
             event.preventDefault();
-            //selcount++;
-            //var name = "selection" + selcount;
-            ActivateVRkeyboard("saveSel");
-            
-            /*var out = {
-                "content": "someOthercoolName",
-                "route": "saveSelection"
-            };
-            ue4("GetSelection", out);
-            */
 
+            ActivateVRkeyboard("saveSel");
         });
     });
 
@@ -393,13 +384,7 @@ $(document).ready(function () {
         });
     });
 
-    $(function () {
-        $("#SaveSearch").button();
-        $("#SaveSearch").click(function (event) {
-            event.preventDefault();
-            ActivateVRkeyboard("SaveSearch");
-        });
-    });
+
 
     //buttons fuer randomwalk
 
