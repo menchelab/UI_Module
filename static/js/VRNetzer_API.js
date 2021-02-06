@@ -21,7 +21,7 @@ var rwJuliaResponse = "";
 (ue.interface), (ue4 = ue.interface.broadcast);
 ////  API DEFENITION
 //// DONT TOUCH THIS FILE
-function ///logger(message) {
+function logger(message) {
     console.log(message);
     ue4("log", message);
 }
