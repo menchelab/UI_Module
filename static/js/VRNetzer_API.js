@@ -400,7 +400,8 @@ function SaveSearchTrigger(data) {
 
 function saveSelTrigger(data) {
     data.route = "saveSelection";
-    ///logger(data);/* 
+    ///logger(data);
+    /* 
     var element = "#" + data.route;
     $(element).html(data.content); */
 
