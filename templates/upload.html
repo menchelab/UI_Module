@@ -1,0 +1,76 @@
+<!-- PUT YOUR UI ELEMENTS IN HERE AND DEFINE MAPPINGS IN MyUi.js -->
+
+<!-- HTML STARTS HERE -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/SwagStyle.css') }}">
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+  <!-- <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" -->
+  <!-- rel = "stylesheet"> -->
+  <!-- <link href="jquery-ui.css" rel="stylesheet"> -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/UI_Module_Config.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/VRNetzer_API.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/upload_UI.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/d3ForceGraph.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/d3barchartNodes.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/d3barchart.js') }}"></script>
+
+  <!-- add d3 for fun and profit (and for the randomwalk tab) -->
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+  
+
+    
+      <div class="swagLabel">PROJECTS</div>
+      <select name="namespaces" id="namespaces">
+        {% for namespace in namespaces %}
+          <option value="{{namespace['namespace']}}">{{namespace['namespace']}}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <br>
+      <br>
+      <div class="swagLabel">UPLOAD NEW DATA</div>
+      <p>
+      Please upload layouts, links, and labels here.
+      </p>
+
+      <form id="upload_form" method=post enctype=multipart/form-data>
+        Select Layouts: <input type=file name=layouts multiple><br>
+        Select Links: <input type=file name=links multiple><br>
+        Select Attributes: <input type=file name=attributes multiple><br>
+        Select Cluster Labels: <input type=file name=labels multiple><br>
+        <input type="radio" name="namespace" value="existing" checked>Add to current project<br>
+        <input type="radio" name="namespace" id="radio_new_namespace" value="New">Create new project<br>
+        <input type="text" id="new_namespace_name" name="new_name" hidden><br>
+        <p id="submit_warnings"></p>
+        <input type=submit value=Upload  disabled=true id=upload_button />
+      </form>
+
+    
+
+    
+  
+
+  
+
+</body>

@@ -35,6 +35,11 @@ def output4():
     # serve index template
     return render_template('results.html')
 
+@app.route('/upload', methods=['GET'])
+def swimmer():
+    return render_template('upload.html')
+
+
 
 @app.route("/print", methods=['GET', 'POST'])
 
