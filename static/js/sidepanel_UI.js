@@ -1,6 +1,7 @@
 /////// USER EDITABLE
 
     var dashboardData = {
+		"filename":"xxx",
         "pname": "Firstname Lastname",
         "pdata": "3, male",
         "pcomments": "NO KNOWN DISEASE HISTORY",
@@ -80,7 +81,11 @@
 			"name": "syntaxin binding protein 2",
 			"node_id": 1029,
 			"symbol": "STXBP2"
-		}, {
+		}
+		/*
+
+		
+		, {
 			"name": "regulatory factor X5",
 			"node_id": 19462,
 			"symbol": "RFX5"
@@ -1056,7 +1061,9 @@
 			"name": "growth factor independent 1 transcriptional repressor",
 			"node_id": 15356,
 			"symbol": "GFI1"
-		}]
+		}
+	*/
+	]
     };
     
     
@@ -1086,13 +1093,23 @@ $(document).ready(function () {
         $("#tabsSide").tabs();
     });
     
+    $(function () {
+        $("#savedSessions").selectmenu();
+
+    });
+
+    $('#savedSessions').on('selectmenuselect', function () {
+        var name = $('#savedSessions').find(':selected').text();
+        logger(name);
+		GetDbLoadResults(name);
+       
+
+    });
 
    
+	
     
-    
-    
-     LoadPanelData();
-    //xxx
+ 
     $(function () {
         $("#pslider-restart_probability").slider({
             animate: true,
@@ -1150,10 +1167,11 @@ $(document).ready(function () {
             event.preventDefault();
             ///logger(rwJuliaResponse);
             // collect dashboarddata here
-            dashboardData.pname = "get name";
+			dashboardData.filename = "1234name"
+            /*dashboardData.pname = "get name";
             dashboardData.pdata = "......";
             dashboardData.pcomments = "blablabal";
-            dashboardData.rw = rwJuliaResponse;
+            //dashboardData.rw = rwJuliaResponse;
 
             var myGenebuttons = $("#MyNodesbox :button");
 
@@ -1163,13 +1181,16 @@ $(document).ready(function () {
                dashboardData.myNodes.push(thisnode);
                
             }
-            ///logger(dashboardData);
+            
             // send it to server
-            SavePanelData(dashboardData);
+			*/
+			logger(dashboardData);
+            //SavePanelData(dashboardData);
+			ActivateVRkeyboard("saveResults");
         });
     });
     
-
+ 
     
     $(function () {
         $("#pphensearch").button();
@@ -1282,7 +1303,96 @@ $(document).ready(function () {
     }
 
     //Todo: Needs to be notified from main UI !!!
-    GetDbFileNames1();
+	
+	GetDbResultsNames();
+    //GetDbFileNames1();
  
 
 });
+
+
+function GetDbResultsNames() {
+    
+    //var requestTxt = {"name": name};
+    //payload = JSON.stringify(requestTxt)
+    path = dbprefix + '/api/ppi/import/results';
+    //logger(path);
+    $.ajax({
+        type: "GET",
+        url: path,
+        contentType: "application/json",
+        //data: payload,
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        dataType: "json",
+        success: function (response) {
+            logger(response);
+            // POPULATE UI DROPDOWN
+
+            dbdata = response.filename.slice(); //DEEP COPY !!!!
+            logger(dbdata)
+            $('#savedSessions').find('option').remove().end();
+            $('#savedSessions').selectmenu('destroy').selectmenu({
+                style: 'dropdown'
+            });
+
+            response.filename.forEach(function (item) {
+                $('#savedSessions').append($('<option>', {
+                        value: item,
+                        text: item
+                    }));
+            });
+
+             
+            $("#savedSessions").selectmenu("refresh");
+
+            
+
+        },
+
+        error: function (err) {
+            logger(err);
+
+        }
+    });
+    //event.preventDefault();
+
+}
+
+
+function GetDbLoadResults(name) {
+    
+    //var requestTxt = {"name": name};
+    //payload = JSON.stringify(requestTxt)
+    path = dbprefix + "/api/ppi/import/resultsfilename?fname='" + name +"'";
+    //logger(path);
+    $.ajax({
+        type: "GET",
+        url: path,
+        contentType: "application/json",
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        dataType: "json",
+        success: function (response) {
+            logger(response);
+            // POPULATE PAGE
+			dbdata = response.slice(); //DEEP COPY !!!!
+            logger(dbdata.json_str)
+
+
+            
+
+        },
+
+        error: function (err) {
+            logger(err);
+
+        }
+    });
+    //event.preventDefault();
+
+}
+
+

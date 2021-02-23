@@ -401,16 +401,20 @@ function SaveSearchTrigger(data) {
 function saveSelTrigger(data) {
     data.route = "saveSelection";
     ///logger(data);
-    /* 
-    var element = "#" + data.route;
-    $(element).html(data.content); */
-
     if (data.end == 1) { //USER PRESSED ENTER KEY
         // Get Selection from UE4 somehow
-
         ue4("getSelection", data);
-        //var dummySelData =  {"selection_name": data.content,"node_ids":[1,2,3,4,5,99,666,1337]};
-        ///logger(data.route + " Event Fired");
+    }
+}
+
+function saveResultsTrigger(data) {
+    data.route = "saveResults";
+
+    if (data.end == 1) { //USER PRESSED ENTER KEY
+        //todo: gather panel data
+        dashboardData.filename = data.content;
+        SavePanelData(dashboardData);
+        
     }
 }
 
@@ -537,6 +541,12 @@ function GetDbFileNames1() {
     //event.preventDefault();
 
 }
+
+
+
+
+
+
 
 
 
@@ -1185,8 +1195,8 @@ function populateSidePanel(data) {
 function SavePanelData(data) {
 
     payload = JSON.stringify(data);
-    ///logger(data);
-    //path = dbprefix + "/api/ppi/node/sub_layout";
+    logger(data);
+ 
     path = dbprefix + "/api/ppi/export/results";
     /////logger(path);
         $.ajax({
@@ -1200,10 +1210,10 @@ function SavePanelData(data) {
         },
         success: function (response) {
 
-            ///logger(response);
+            logger(response);
         },
         error: function (err) {
-            ///logger(err);
+            logger(err);
             ///logger(data);
         }
     });

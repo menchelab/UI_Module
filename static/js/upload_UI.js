@@ -4,12 +4,17 @@
 $(document).ready(function () {
   //LOAD NAMESPACE MENU TAB 1
     //LOAD NAMESPACE MENU TAB 1
+   
+
+
     $(function () {
         $("#namespaces").selectmenu();
 
     });
 
- 
+    $(function () {
+      $("#tabsUL").tabs();
+    });
 
     $('#namespaces').on('selectmenuselect', function () {
         var name = $('#namespaces').find(':selected').text();
