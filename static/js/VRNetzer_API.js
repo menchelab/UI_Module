@@ -412,6 +412,7 @@ function saveResultsTrigger(data) {
 
     if (data.end == 1) { //USER PRESSED ENTER KEY
         //todo: gather panel data
+        CollectDashBoardData();
         dashboardData.filename = data.content;
         SavePanelData(dashboardData);
         
