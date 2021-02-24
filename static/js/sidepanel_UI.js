@@ -86,9 +86,13 @@ $(document).ready(function () {
 
             
             // 
+			CollectDashBoardData();
+			
+			dashboardData.filename = "test222"
+
 			logger(dashboardData);
-            //SavePanelData(dashboardData);
-			ActivateVRkeyboard("saveResults");
+            SavePanelData(dashboardData);
+			//ActivateVRkeyboard("saveResults");
         });
     });
     
@@ -179,34 +183,12 @@ $(document).ready(function () {
         });
     });
 
-    drawit(inputdata);
-    drawBarChart(inputdata.nodes);
 
-
-    $("#pname").text(dashboardData.pname);
-    $("#page").text(dashboardData.pdata);
-    $("#pcomments").text(dashboardData.pcomments);
-
-    for (var i = 0; i < 100 && i < dashboardData.phenotypes.length; i++) {
-
-        createButton(dashboardData.phenotypes[i].name, dashboardData.phenotypes[i].id, "pphenobox");
-
-    }
-
-    for (var i = 0; i < 200 && i < dashboardData.seeds.length; i++) {
-        createButton(dashboardData.seeds[i].symbol, dashboardData.seeds[i].node_id, "seedbox");
-
-    }
-
-    for (var i = 0; i < 100 && i < dashboardData.variants.length; i++) {
-
-        createButton(dashboardData.variants[i].symbol, dashboardData.variants[i].node_id, "pvariantbox");
-
-    }
 
     //Todo: Needs to be notified from main UI !!!
 	
 	GetDbResultsNames();
+	populateSidePanel (dashboardData);
     //GetDbFileNames1();
  
 
@@ -280,10 +262,7 @@ function GetDbLoadResults(name) {
         success: function (response) {
             logger(response);
             // POPULATE PAGE
-			dbdata = response.slice(); //DEEP COPY !!!!
-            logger(dbdata.json_str)
-
-
+			populateSidePanel(response);
             
 
         },
@@ -297,6 +276,35 @@ function GetDbLoadResults(name) {
 
 }
 
+
+function SavePanelData(data) {
+
+    payload = JSON.stringify(data);
+    logger(data);
+ 
+    path = dbprefix + "/api/ppi/export/results";
+    /////logger(path);
+        $.ajax({
+        type: "POST",
+        url: path,
+        contentType: "application/json",
+        data: payload,
+        dataType: "json",
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        success: function (response) {
+
+            logger(response);
+        },
+        error: function (err) {
+            logger(err);
+            ///logger(data);
+        }
+    });
+
+}
+
 function CollectDashBoardData(){
 
             // collect dashboarddata here
@@ -304,7 +312,7 @@ function CollectDashBoardData(){
             dashboardData.pname = "get name";
             dashboardData.pdata = "......";
             dashboardData.pcomments = "blablabal";
-            dashboardData.rw = rwJuliaResponse;
+            //dashboardData.rw = rwJuliaResponse;
 
             var myGenebuttons = $("#MyNodesbox :button");
 
@@ -314,4 +322,33 @@ function CollectDashBoardData(){
                dashboardData.myNodes.push(thisnode);
                
             }
+}
+
+function populateSidePanel (data){
+	
+	logger(data.rw);
+    reloadForceLayout(data.rw);
+    drawBarChart(data.rw.nodes);
+
+
+    $("#pname").text(data.pname);
+    $("#page").text(data.pdata);
+    $("#pcomments").text(data.pcomments);
+
+    for (var i = 0; i < 100 && i < data.phenotypes.length; i++) {
+
+        createButton(data.phenotypes[i].name, data.phenotypes[i].id, "pphenobox");
+
+    }
+
+    for (var i = 0; i < 200 && i < data.seeds.length; i++) {
+        createButton(data.seeds[i].symbol, data.seeds[i].node_id, "seedbox");
+
+    }
+
+    for (var i = 0; i < 100 && i < data.variants.length; i++) {
+
+        createButton(data.variants[i].symbol, data.variants[i].node_id, "pvariantbox");
+
+    }
 }

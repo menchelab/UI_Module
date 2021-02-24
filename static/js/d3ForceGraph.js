@@ -65,6 +65,7 @@ function drawit(data) {
         // .attr("r", function(d) { return d.frequency * data.numSeeds * 10 + 2; })
         .attr("r", 5)
         .attr("fill", function (d) {
+             
         if (d.group == 0) {
             return "#fcba03";
         } else if (d.group == 1) {
@@ -74,6 +75,8 @@ function drawit(data) {
         } else {
             return "#003047";
         }
+         
+
     })
         // .attr("fill", function(d) { return "#007dd1"; })
         .call(d3.drag()
@@ -151,6 +154,6 @@ function reloadForceLayout(data) {
     drawit(data);
 }
 
-function clearForceLayout(data) {
+function clearForceLayout() {
     d3.selectAll("svg > *").remove();
 }

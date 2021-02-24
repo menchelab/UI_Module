@@ -1062,7 +1062,21 @@
 			"symbol": "GFI1"
 		}
 	*/
-	]
+	],
+    "rw" : {
+        "nodes": [
+          {"id": 111,"symbol": "1", "col": "#00548c","frequency": 0.1},
+          {"id": 123,"symbol": "2", "col": "#007dd1","frequency": 0.2},
+          {"id": 234, "symbol": "3", "col": "#007dd1","frequency": 0.3},
+          {"id": 345, "symbol": "4", "col": "#007dd1","frequency": 0.3}
+        ],
+        "links": [
+          {"source": 123, "target": 111, "value": 4},
+          {"source": 123, "target":234, "value": 6},
+          {"source": 345, "target":234, "value": 6},
+          {"source": 234, "target": 111, "value": 2}
+        ]
+      }
     };
     
     
