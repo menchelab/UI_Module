@@ -48,7 +48,9 @@
       <br>
       
       <input type="radio" name="namespace" value="existing" checked>Add to current project<br>
-      <input type="radio" name="namespace" id="radio_new_namespace" value="New">Create new project<br>
+      <p hidden><input hidden type="radio" name="namespace" id="radio_new_namespace" value="New"> Create new project</p>
+      
+      <br>
       <br>
       
       <form id="upload_form" method=post enctype=multipart/form-data style="color:rgb(255, 255, 255)">
@@ -59,8 +61,10 @@
 
       <label>L A Y O U T S</label><br>
       <input type=file name=layouts multiple><br><br>
+      <p hidden>
       <label>L I N K S</label><br>
       <input type=file name=links multiple><br><br>
+      </p>
       <label>A T T R I B U T E S</label><br>
       <input type=file name=attributes multiple><br><br>
       <label>L A B L E S</label><br>

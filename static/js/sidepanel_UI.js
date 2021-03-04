@@ -325,8 +325,14 @@ function CollectDashBoardData(){
 }
 
 function populateSidePanel (data){
-	
-	logger(data.rw);
+
+	//Clear Buttons first
+    $("#pphenobox").empty();
+    $("#pvariantbox").empty();
+    $("#seedbox").empty();
+    $("#MyNodesbox").empty();
+
+	//logger(data.rw);
     reloadForceLayout(data.rw);
     drawBarChart(data.rw.nodes);
 
@@ -341,14 +347,20 @@ function populateSidePanel (data){
 
     }
 
-    for (var i = 0; i < 200 && i < data.seeds.length; i++) {
+    for (var i = 0; i < 400 && i < data.seeds.length; i++) {
         createButton(data.seeds[i].symbol, data.seeds[i].node_id, "seedbox");
 
     }
 
-    for (var i = 0; i < 100 && i < data.variants.length; i++) {
+    for (var i = 0; i < 400 && i < data.variants.length; i++) {
 
         createButton(data.variants[i].symbol, data.variants[i].node_id, "pvariantbox");
+
+    }
+
+    for (var i = 0; i < 400 && i < data.variants.length; i++) {
+
+        createButton(data.myNodes[i].symbol, data.myNodes[i].node_id, "MyNodesbox");
 
     }
 }
