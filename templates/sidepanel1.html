@@ -16,7 +16,7 @@
                     <script src="https://d3js.org/d3.v4.js"></script>
                     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
                     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/Sessiondata.js') }}"></script> 
                     <script type="text/javascript" src="{{ url_for('static', filename='js/UI_Module_Config.js') }}"></script>                    
                     <script type="text/javascript" src="{{ url_for('static', filename='js/VRNetzer_API.js') }}"></script>
                     <script type="text/javascript" src="{{ url_for('static', filename='js/sidepanel_UI.js') }}"></script>
@@ -58,6 +58,9 @@
                                     </div>
                                     <div style="display: table-cell;">
                                              <button id="savePanel">SAVE</button>
+                                              
+                                             <select name="savedSessions" id="savedSessions">
+                                            </select>
                                     </div>
                                 </div>
                             </div>
@@ -67,6 +70,8 @@
                             <div class="swagLabelSmall", id="pcomments"> ... </div>
                             <p>
                             </p>
+
+
                             <div class="swagLabel", > PHENOTYPES 
                                 <button name="pphenclear" id="pphenclear">X</button>
                                 <button name="pphensearch" id="pphensearch">GO!</button>

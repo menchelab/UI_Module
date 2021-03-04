@@ -51,13 +51,14 @@ ue.interface.getSelection = function (data) {
 };
 
 ue.interface.getRandomWalkResult = function (data) {
-    ///logger(data);
+    logger(data);
     // ///logger(data.nodes[0].frequency + " id:" + data.nodes[0].id );
     //input = JSON.parse(data);
     // ///logger("getRWtriggered but DEACTIVATED for JULIARW");
 
     reloadForceLayout(data);
     drawBarChart(data.nodes);
+    dashboardData.rw = data;
 };
 
 ue.interface.updateSeeds = function (data) {
@@ -401,16 +402,21 @@ function SaveSearchTrigger(data) {
 function saveSelTrigger(data) {
     data.route = "saveSelection";
     ///logger(data);
-    /* 
-    var element = "#" + data.route;
-    $(element).html(data.content); */
-
     if (data.end == 1) { //USER PRESSED ENTER KEY
         // Get Selection from UE4 somehow
-
         ue4("getSelection", data);
-        //var dummySelData =  {"selection_name": data.content,"node_ids":[1,2,3,4,5,99,666,1337]};
-        ///logger(data.route + " Event Fired");
+    }
+}
+
+function saveResultsTrigger(data) {
+    data.route = "saveResults";
+
+    if (data.end == 1) { //USER PRESSED ENTER KEY
+        //todo: gather panel data
+        CollectDashBoardData();
+        dashboardData.filename = data.content;
+        SavePanelData(dashboardData);
+        
     }
 }
 
@@ -537,6 +543,12 @@ function GetDbFileNames1() {
     //event.preventDefault();
 
 }
+
+
+
+
+
+
 
 
 
@@ -1153,62 +1165,8 @@ function GSEASubSet(data) {
 }
 
 
-function LoadPanelData() {
-    path = dbprefix + "/api/ppi/import/results2swimmer";
-    ///logger(path);
-    
-    $.ajax({
-        type: "GET",
-        url: path,
-        contentType: "application/json",
-        headers: {
-            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
-        },
-        dataType: "json",
-        success: function (response) {
-            ///logger(response);
-            populateSidePanel(response)
-        },
 
-        error: function (err) {
-            ///logger(err);
 
-        }
-    }); 
-    
-}
-
-function populateSidePanel(data) {
-    ///logger(data.pname);
-}
-
-function SavePanelData(data) {
-
-    payload = JSON.stringify(data);
-    ///logger(data);
-    //path = dbprefix + "/api/ppi/node/sub_layout";
-    path = dbprefix + "/api/ppi/export/results";
-    /////logger(path);
-        $.ajax({
-        type: "POST",
-        url: path,
-        contentType: "application/json",
-        data: payload,
-        dataType: "json",
-        headers: {
-            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
-        },
-        success: function (response) {
-
-            ///logger(response);
-        },
-        error: function (err) {
-            ///logger(err);
-            ///logger(data);
-        }
-    });
-
-}
 
 
 
