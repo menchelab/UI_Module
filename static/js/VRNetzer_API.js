@@ -156,12 +156,10 @@ ue.interface.updateNodePanel = function (data) {
 
     //payload = JSON.stringify(data);
     nodePanelRequest(data.id);
-
-    /////logger(data.id);
-
-
+    publicationsRequest(data.id);
 
 };
+
 
 function nodePanelRequest(data){
     
@@ -200,6 +198,39 @@ function nodePanelRequest(data){
         },
         error: function (err) {
             ///logger(err);
+
+        }
+    });
+}
+
+function publicationsRequest(data){
+    
+    path = dbprefix + "/api/ppi/article?node_id=" + data;
+    
+    $.ajax({
+        type: "GET",
+        url: path,
+        contentType: "application/json",
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        dataType: "json",
+        success: function (response) {
+
+            //logger(response);
+            clearButtons("pubbox");
+            
+            //
+            for (var i = 0; i < 100 && i < response.length; i++) {
+                logger(response[i].title);
+                createPubButton(response[i].title, response[i].external_id, "pubbox");
+        
+            }
+            
+
+        },
+        error: function (err) {
+            logger(err);
 
         }
     });
@@ -855,6 +886,25 @@ function createNodeButton(Bname, Bsym, Bid, Parent) {
     });
 }
 
+function createPubButton(Bname, Bid, Parent) {
+
+    var r = $('<input/>').attr({
+        type: "button",
+        id: Bid,
+        value: Bname
+
+    });
+    var p = '#' + Parent;
+    $(p).append(r);
+    $(r).button();
+    $(r).click(function () {
+       // $("#searchInput1").text(Bname);
+       // $("#searchInput1").attr("searchID", Bid);
+        console.log(Bname + " " + Bid + " " + Parent);
+
+    });
+}
+
 function clearButtons(parent) {
     const myNode = document.getElementById(parent);
     while (myNode.firstChild) {
@@ -1152,7 +1202,7 @@ function GSEASubSet(data) {
         },
         success: function (response) {
 
-            ///logger(response);
+            logger(response);
             //ue4("reLayout", response);
             drawGSEABarChart(response);
         },
