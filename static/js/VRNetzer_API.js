@@ -236,6 +236,35 @@ function publicationsRequest(data){
     });
 }
 
+function publicationsAbstractRequest(data){
+    
+    path = dbprefix + "/api/ppi/article?pubid=" + data;
+    
+    $.ajax({
+        type: "GET",
+        url: path,
+        contentType: "application/json",
+        headers: {
+            "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
+        },
+        dataType: "json",
+        success: function (response) {
+            $("#pubdate").text(response.publication_date);
+            $("#abstitle").text(response.title);
+            $("#abstext").text(response.abstract);
+            $("#authtext").text(response.authors_list);
+            
+            logger(response);
+            
+
+        },
+        error: function (err) {
+            logger(err);
+
+        }
+    });
+}
+
 var pp_count = 0;
 
 ue.interface.powerpoint = function (data) {
@@ -901,6 +930,7 @@ function createPubButton(Bname, Bid, Parent) {
        // $("#searchInput1").text(Bname);
        // $("#searchInput1").attr("searchID", Bid);
         console.log(Bname + " " + Bid + " " + Parent);
+        publicationsAbstractRequest(Bid);
 
     });
 }
