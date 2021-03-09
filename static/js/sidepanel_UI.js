@@ -86,13 +86,13 @@ $(document).ready(function () {
 
             
             // 
-			CollectDashBoardData();
+			//CollectDashBoardData();
 			
-			dashboardData.filename = "test222"
+			//dashboardData.filename = "test222"
 
-			logger(dashboardData);
-            SavePanelData(dashboardData);
-			//ActivateVRkeyboard("saveResults");
+			//logger(dashboardData);
+            //SavePanelData(dashboardData);
+			ActivateVRkeyboard("saveResults");
         });
     });
     
