@@ -332,7 +332,7 @@ function populateSidePanel (data){
     $("#seedbox").empty();
     $("#MyNodesbox").empty();
 
-	//logger(data.rw);
+	logger(data.rw);
     reloadForceLayout(data.rw);
     drawBarChart(data.rw.nodes);
 

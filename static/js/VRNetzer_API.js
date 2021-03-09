@@ -50,15 +50,17 @@ ue.interface.getSelection = function (data) {
 
 };
 
-ue.interface.getRandomWalkResult = function (data) {
-    logger(data);
-    // ///logger(data.nodes[0].frequency + " id:" + data.nodes[0].id );
-    //input = JSON.parse(data);
-    // ///logger("getRWtriggered but DEACTIVATED for JULIARW");
 
-    reloadForceLayout(data);
+ue.interface.getRandomWalkResult = function (data) {
+     
+    logger(data); 
+    // ///logger(data.nodes[0].frequency + " id:" + data.nodes[0].id );
+    input=JSON.parse(JSON.stringify(data)); //deep copy
+ 
+    reloadForceLayout(input);  // this guy somhow modifies input json???
     drawBarChart(data.nodes);
     dashboardData.rw = data;
+     
 };
 
 ue.interface.updateSeeds = function (data) {
@@ -115,7 +117,7 @@ ue.interface.randomWalkPy = function (data) {
                 direction: "down"
             }, "fast");
             $('#spinner').hide();
-            /////logger(response);
+            logger(response);
             $('#rwLabel').text(response.nodes.length + " NODES FOUND");
             ///logger(response);
         },
@@ -329,10 +331,10 @@ function juliaRw(data) {
             $('#pspinner_load').hide();
             /////logger(response);
             //$('#rwLabel').text(response.length + " NODES FOUND");
-            /////logger(response);
-
+            logger(response);
+            input = JSON.parse(JSON.stringify(response)); //deep copy
             //response.links = [];
-            reloadForceLayout(response);
+            reloadForceLayout(input);
             /////logger(response.nodes[0].symbol);
             var clippedNodes = [];
             var nodesJson = {
