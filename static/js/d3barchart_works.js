@@ -43,12 +43,12 @@ var svg = d3.select("#GSEABarChart")
 
   // format the data
  data.forEach(function(d) {
-   d.pvalue = +d.pvalue;
+   d.toPlot = +d.toPlot;
  });
 
   // Scale the range of the data in the domains
-  x.domain([0, d3.max(data, function(d){ return d.pvalue; })])
-  y.domain(data.map(function(d) { return d.annoTerm; }));
+  x.domain([0, d3.max(data, function(d){ return d.toPlot; })])
+  y.domain(data.map(function(d) { return d.term; }));
   //y.domain([0, d3.max(data, function(d) { return d.r; })]);
 
   // append the rectangles for the bar chart
@@ -58,8 +58,8 @@ var svg = d3.select("#GSEABarChart")
     .enter().append("rect")
       .attr("class", "bar")
       //.attr("x", function(d) { return x(d.r); })
-      .attr("width", function(d) {return x(d.pvalue); } )
-      .attr("y", function(d) { return y(d.annoTerm); })
+      .attr("width", function(d) {return x(d.toPlot); } )
+      .attr("y", function(d) { return y(d.term); })
       .attr("fill","#00548c")
       .attr("height", y.bandwidth());
 

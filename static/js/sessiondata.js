@@ -81,7 +81,7 @@
 			"node_id": 1029,
 			"symbol": "STXBP2"
 		}
-		/*
+	
 
 		
 		, {
@@ -1061,7 +1061,7 @@
 			"node_id": 15356,
 			"symbol": "GFI1"
 		}
-	*/
+	
 	],
     "rw" : {
         "nodes": [
