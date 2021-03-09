@@ -82,7 +82,7 @@ $(document).ready(function () {
         $("#savePanel").button();
         $("#savePanel").click(function (event) {
             event.preventDefault();
-            ///logger(rwJuliaResponse);
+             
 
             
             // 
@@ -312,7 +312,7 @@ function CollectDashBoardData(){
             dashboardData.pname = "get name";
             dashboardData.pdata = "......";
             dashboardData.pcomments = "blablabal";
-            //dashboardData.rw = rwJuliaResponse;
+             
 
             var myGenebuttons = $("#MyNodesbox :button");
 

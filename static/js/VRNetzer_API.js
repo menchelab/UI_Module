@@ -2,7 +2,7 @@
 
 var p1 = -1;
 var p2 = -1;
-var rwJuliaResponse = "";
+ 
 
 //create the global ue4(...) helper function
 "object" != typeof ue || "object" != typeof ue.interface ? ("object" != typeof ue && (ue = {}), ue.interface = {}, ue.interface.broadcast = function (e, t) {
@@ -322,7 +322,7 @@ function juliaRw(data) {
             "Authorization": "Basic " + btoa(dbuser + ":" + dbpw)
         },
         success: function (response) {
-            rwJuliaResponse = response;
+          
             response.numSeeds = numSeeds;
             // ue4("rw_result",response);
             $('#prw_section').show("drop", {
