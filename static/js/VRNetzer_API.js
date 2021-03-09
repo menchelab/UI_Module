@@ -361,6 +361,7 @@ function juliaRw(data) {
             }
             ///logger(nodesJson);
             drawBarChart(clippedNodes);
+            dashboardData.rw = data;
 
             ue4("julia", nodesJson);
 
