@@ -1183,7 +1183,7 @@ function ReLayoutSubSet(data) {
     dummydata.node_ids = data.node_ids;
     //console.log(JSON.stringify(data.node_ids));
     payload = JSON.stringify(dummydata);
-    //console.log(payload);
+    console.log(payload);
     //
     path = dbprefix + "/api/" + thisNamespace.namespace + "/node/sub_layout";
     $.ajax({
@@ -1198,11 +1198,11 @@ function ReLayoutSubSet(data) {
         },
         success: function (response) {
 
-            ///logger(response);
+            logger(response);
             ue4("reLayout", response);
         },
         error: function (err) {
-            ///logger(err);
+            logger(err);
 
         }
     });
