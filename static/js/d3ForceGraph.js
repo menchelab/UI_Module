@@ -30,6 +30,8 @@ var inputdata = {
 // https://stackoverflow.com/questions/16236600/d3-js-force-layout-auto-zoom-scale-after-loading
 
 function drawit(data) {
+
+    input = JSON.parse(JSON.stringify(data)); //deep copy
     // if (error) throw error;
     d3.selectAll("#forceLayout > *").remove();
 
@@ -51,7 +53,7 @@ function drawit(data) {
     var link = svg.append("g")
         .attr("class", "links")
         .selectAll("line")
-        .data(data.links)
+        .data(input.links)
         .enter().append("line")
         .attr("stroke-width", function (d) {
         return Math.sqrt(d.value) + 2;
@@ -60,7 +62,7 @@ function drawit(data) {
     var node = svg.append("g")
         .attr("class", "nodes")
         .selectAll("circle")
-        .data(data.nodes)
+        .data(input.nodes)
         .enter().append("circle")
         // .attr("r", function(d) { return d.frequency * data.numSeeds * 10 + 2; })
         .attr("r", 5)
@@ -93,11 +95,11 @@ function drawit(data) {
     });
 
     simulation
-    .nodes(data.nodes)
+    .nodes(input.nodes)
     .on("tick", ticked);
 
     simulation.force("link")
-    .links(data.links);
+    .links(input.links);
 
     function ticked() {
 

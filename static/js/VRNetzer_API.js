@@ -55,9 +55,9 @@ ue.interface.getRandomWalkResult = function (data) {
      
     logger(data); 
     // ///logger(data.nodes[0].frequency + " id:" + data.nodes[0].id );
-    input=JSON.parse(JSON.stringify(data)); //deep copy
+     
  
-    reloadForceLayout(input);  // this guy somhow modifies input json???
+    reloadForceLayout(data);  // this guy somhow modifies input json???
     drawBarChart(data.nodes);
     dashboardData.rw.links = data.links;
     dashboardData.rw.nodes = data.nodes;
@@ -325,6 +325,8 @@ function juliaRw(data) {
         success: function (response) {
           
             response.numSeeds = numSeeds;
+            dashboardData.rw.links = response.links;
+            dashboardData.rw.nodes = response.nodes;
             // ue4("rw_result",response);
             $('#prw_section').show("drop", {
                 direction: "down"
@@ -333,9 +335,9 @@ function juliaRw(data) {
             /////logger(response);
             //$('#rwLabel').text(response.length + " NODES FOUND");
             logger(response);
-            input = JSON.parse(JSON.stringify(response)); //deep copy
-            //response.links = [];
-            reloadForceLayout(input);
+            logger("this");
+ 
+            reloadForceLayout(response);
             /////logger(response.nodes[0].symbol);
             var clippedNodes = [];
             var nodesJson = {
@@ -362,8 +364,7 @@ function juliaRw(data) {
             }
             ///logger(nodesJson);
             drawBarChart(clippedNodes);
-            dashboardData.rw.links = response.links;
-            dashboardData.rw.nodes = response.nodes;
+
 
             ue4("julia", nodesJson);
 
