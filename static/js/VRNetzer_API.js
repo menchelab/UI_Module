@@ -59,7 +59,8 @@ ue.interface.getRandomWalkResult = function (data) {
  
     reloadForceLayout(input);  // this guy somhow modifies input json???
     drawBarChart(data.nodes);
-    dashboardData.rw = data;
+    dashboardData.rw.links = data.links;
+    dashboardData.rw.nodes = data.nodes;
      
 };
 
@@ -361,7 +362,8 @@ function juliaRw(data) {
             }
             ///logger(nodesJson);
             drawBarChart(clippedNodes);
-            dashboardData.rw = data;
+            dashboardData.rw.links = response.links;
+            dashboardData.rw.nodes = response.nodes;
 
             ue4("julia", nodesJson);
 

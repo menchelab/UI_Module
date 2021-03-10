@@ -90,7 +90,7 @@ $(document).ready(function () {
 			
 			//dashboardData.filename = "test222"
 
-			//logger(dashboardData);
+			logger(dashboardData);
             //SavePanelData(dashboardData);
 			ActivateVRkeyboard("saveResults");
         });
@@ -329,6 +329,7 @@ function populateSidePanel (data){
 	//Clear Buttons first
     $("#pphenobox").empty();
     $("#pvariantbox").empty();
+
     $("#seedbox").empty();
     $("#MyNodesbox").empty();
 
