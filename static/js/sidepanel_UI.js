@@ -359,7 +359,7 @@ function populateSidePanel (data){
 
     }
 
-    for (var i = 0; i < 400 && i < data.variants.length; i++) {
+    for (var i = 0; i < 400 && i < data.myNodes.length; i++) {
 
         createButton(data.myNodes[i].symbol, data.myNodes[i].node_id, "MyNodesbox");
 
