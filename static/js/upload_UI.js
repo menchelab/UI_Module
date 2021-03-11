@@ -6,7 +6,7 @@ $(document).ready(function () {
     //LOAD NAMESPACE MENU TAB 1
    
     GetDbFileNames1();
-    logger("this");
+    console.log("this");
 
     $(function () {
         $("#namespaces").selectmenu();
@@ -19,7 +19,7 @@ $(document).ready(function () {
 
     $('#namespaces').on('selectmenuselect', function () {
         var name = $('#namespaces').find(':selected').text();
-        logger(name);
+        console.log(name);
         UpdateNamespace(name);
 
     });
@@ -40,6 +40,13 @@ $(document).ready(function () {
     $('form :input').on('change input', function() {
         console.log("changed!");
         var formData = new FormData(document.getElementById('upload_form'));
+
+
+
+        for (var pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
+        } 
+
         let namespace = formData.get("namespace");
         if (namespace == "New") {
           existing_selections = allNamespaces.map(function(x) {return x.namespace});
@@ -60,7 +67,7 @@ $(document).ready(function () {
             $("#upload_button").attr("disabled", true).addClass("ui-state-disabled");
           }
         } else {
-          logger(namespace);
+          console.log(namespace);
           if (formData.get('layouts').size > 0 ||
               formData.get('links').size > 0 ||
               formData.get('labels').size > 0 ||
@@ -86,15 +93,18 @@ $(document).ready(function () {
           formData.append('existing_namespace', $('#namespaces').val());
         }
         let it = formData.keys();
+
         let result = it.next();
         while (!result.done) {
-       console.log(result.value); // 1 3 5 7 9
+       console.log(result); // 1 3 5 7 9
           console.log(formData.get(result.value))
        result = it.next();
       }
       
       
         var url = dbprefix + "/upload";
+        console.log(url);
+        console.log(formData);
         $.ajax({
           type: "POST",
           url: url,
