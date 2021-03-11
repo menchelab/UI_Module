@@ -5,7 +5,8 @@ $(document).ready(function () {
   //LOAD NAMESPACE MENU TAB 1
     //LOAD NAMESPACE MENU TAB 1
    
-
+    GetDbFileNames1();
+    logger("this");
 
     $(function () {
         $("#namespaces").selectmenu();
@@ -18,7 +19,7 @@ $(document).ready(function () {
 
     $('#namespaces').on('selectmenuselect', function () {
         var name = $('#namespaces').find(':selected').text();
-        /////logger(name);
+        logger(name);
         UpdateNamespace(name);
 
     });
@@ -59,6 +60,7 @@ $(document).ready(function () {
             $("#upload_button").attr("disabled", true).addClass("ui-state-disabled");
           }
         } else {
+          logger(namespace);
           if (formData.get('layouts').size > 0 ||
               formData.get('links').size > 0 ||
               formData.get('labels').size > 0 ||
@@ -110,7 +112,7 @@ $(document).ready(function () {
       
 
 
-    GetDbFileNames1();
+    
 
 
 

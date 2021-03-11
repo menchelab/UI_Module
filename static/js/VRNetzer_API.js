@@ -568,7 +568,7 @@ function GetDbFileNames1() {
             /////logger(response);
             // POPULATE UI DROPDOWN
             dbdata = response.slice(); //DEEP COPY !!!!
-            ///logger(dbdata)
+            logger(dbdata)
             $('#namespaces').find('option').remove().end();
             $('#namespaces').selectmenu('destroy').selectmenu({
                 style: 'dropdown'
