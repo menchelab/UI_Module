@@ -69,6 +69,7 @@ $(document).ready(function () {
         } else {
           console.log(namespace);
           if (formData.get('layouts').size > 0 ||
+			  formData.get('nodes').size > 0 ||
               formData.get('links').size > 0 ||
               formData.get('labels').size > 0 ||
               formData.get('attributes').size > 0) {
