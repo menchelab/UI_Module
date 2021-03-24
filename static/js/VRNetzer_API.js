@@ -195,6 +195,9 @@ function nodePanelRequest(data){
             $("#ifunbox").text(ftext);
 
             ///logger(response[0].tissue);
+		    // if (thisNamespace.namespace == "ppi") {
+		    //     drawNodeBarChart(response[0].tissue);
+		    // }
             drawNodeBarChart(response[0].tissue);
 
             ///logger(response);
@@ -208,7 +211,7 @@ function nodePanelRequest(data){
 
 function publicationsRequest(data){
     
-    path = dbprefix + "/api/ppi/article?node_id=" + data;
+    path = dbprefix + "/api/" + thisNamespace.namespace + "/article?node_id=" + data;
     
     $.ajax({
         type: "GET",
@@ -241,7 +244,7 @@ function publicationsRequest(data){
 
 function publicationsAbstractRequest(data){
     
-    path = dbprefix + "/api/ppi/article?pubid=" + data;
+    path = dbprefix + "/api/" + thisNamespace.namespace + "/article?pubid=" + data;
     
     $.ajax({
         type: "GET",
