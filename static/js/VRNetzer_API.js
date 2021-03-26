@@ -515,7 +515,7 @@ var thisNamespace;
 
 ue.interface.setNamespace = function (data) {
     logger(data.namespace);
-    thisNamespace = data.namespace;
+    thisNamespace = data;
 
 };
 //// Functions that POST to UE4 //////
@@ -529,7 +529,8 @@ function ActivateVRkeyboard(route) {
 function UpdateNamespace(name) {
 
     thisNamespace = dbdata.find(o => o.namespace === name);
-    ///logger(thisNamespace);
+    
+    logger(thisNamespace);
     ///notify ue4
     ue4("namespace", thisNamespace);
     //CLEAR LAYOUT DROPDOWN
