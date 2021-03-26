@@ -513,6 +513,11 @@ ue.interface.setFilenames = function (payload) {
 var dbdata;
 var thisNamespace;
 
+ue.interface.setNamespace = function (data) {
+    logger(data.namespace);
+    thisNamespace = data.namespace;
+
+};
 //// Functions that POST to UE4 //////
 
 function ActivateVRkeyboard(route) {
@@ -525,7 +530,8 @@ function UpdateNamespace(name) {
 
     thisNamespace = dbdata.find(o => o.namespace === name);
     ///logger(thisNamespace);
-
+    ///notify ue4
+    ue4("namespace", thisNamespace);
     //CLEAR LAYOUT DROPDOWN
     $('#layouts').find('option').remove().end();
     $('#layouts').selectmenu('destroy').selectmenu({
@@ -702,7 +708,7 @@ function GetDbNodeList1(name, channel) {
             } else if (channel == "B") {
                 ue4("LoadDbNodeListB", response);
             }
-            ///logger(response);
+            logger(response);
             GetDbLabelList1(name, channel);
             
             $('#spinner_load').hide("drop", {
