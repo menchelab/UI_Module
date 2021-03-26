@@ -166,8 +166,8 @@ ue.interface.updateNodePanel = function (data) {
 
 function nodePanelRequest(data){
     
-    path = dbprefix + "/api/" + thisNamespace.namespace + "/node/gene_card?node_id=" + data;
-    
+    path = dbprefix + "/api/ppi/node/gene_card?node_id=" + data;
+    logger(path);
     $.ajax({
         type: "GET",
         url: path,
