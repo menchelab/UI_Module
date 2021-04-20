@@ -84,7 +84,6 @@ $(document).ready(function () {
       
       
       
-      
       $("#upload_form").submit(function(event) {
         event.preventDefault();
       
@@ -102,7 +101,6 @@ $(document).ready(function () {
        result = it.next();
       }
       
-      
         var url = dbprefix + "/upload";
         console.log(url);
         console.log(formData);
@@ -115,8 +113,15 @@ $(document).ready(function () {
           processData: false,
           success: function(data)
           {
-              console.log("Uploaded successfully!"); // show response from the php script.
-          }
+			 console.log("Uploaded successfully!"); 
+			 $("#upload_message").html("Upload successful");
+			  
+          },
+        error: function (err) {
+            console.log("Uploaded failed!"); 
+		 $("#upload_message").html("Upload failed");
+			
+        }
         });
       
       });
