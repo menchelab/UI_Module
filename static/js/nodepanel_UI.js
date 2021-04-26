@@ -10,7 +10,7 @@ $(document).ready(function () {
     });
 
 
-    logger("im there");
+ 
     redrawMap(48.14, 16.46);
     
    
