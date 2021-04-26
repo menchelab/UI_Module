@@ -514,8 +514,10 @@ var dbdata;
 var thisNamespace;
 
 ue.interface.setNamespace = function (data) {
-    logger(data.namespace);
-    thisNamespace = data;
+    input = JSON.parse(data);
+    
+    thisNamespace = input;
+    logger(thisNamespace);
 
 };
 //// Functions that POST to UE4 //////
