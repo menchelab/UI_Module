@@ -514,9 +514,9 @@ var dbdata;
 var thisNamespace;
 
 ue.interface.setNamespace = function (data) {
-    input = JSON.parse(data);
+    //input = JSON.parse(data);
     
-    thisNamespace = input;
+    thisNamespace = data;
     logger(thisNamespace);
 
 };
