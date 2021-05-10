@@ -210,7 +210,7 @@ $(document).ready(function () {
             value: 128,
             slide: function (event, ui) {
                 var nsize = {"nsize":ui.value};
-                ue4("SetNodeSize", ui.value);
+                ue4("SetNodeSize", nsize);
             }
         });
 
@@ -221,7 +221,7 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
-                lsize = {"lsize":ui.value};
+                var lsize = {"lsize":ui.value};
                 ue4("SetLinkSize", lsize);
             }
         });
@@ -233,7 +233,7 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
-                ltra = {"ltra":ui.value};
+                var ltra = {"ltra":ui.value};
                 ue4("SetLinkAlpha", ltra);
             }
         });
@@ -245,7 +245,7 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
-                light = {"light":ui.value};
+                var light = {"light":ui.value};
                 ue4("SetLight", light);
 
             }
