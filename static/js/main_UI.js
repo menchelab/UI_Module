@@ -197,7 +197,7 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
-                var scale = {"scale":ui.value}
+                var scale = {"scale":ui.value};
                 ue4("SetScale",scale);
             }
         });
@@ -209,6 +209,7 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
+                var nsize = {"nsize":ui.value};
                 ue4("SetNodeSize", ui.value);
             }
         });
@@ -220,7 +221,8 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
-                ue4("SetLinkSize", ui.value);
+                lsize = {"lsize":ui.value};
+                ue4("SetLinkSize", lsize);
             }
         });
 
@@ -231,8 +233,8 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
-
-                ue4("SetLinkAlpha", ui.value);
+                ltra = {"ltra":ui.value};
+                ue4("SetLinkAlpha", ltra);
             }
         });
 
@@ -243,8 +245,8 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
-
-                ue4("SetLight", ui.value);
+                light = {"light":ui.value};
+                ue4("SetLight", light);
 
             }
         });

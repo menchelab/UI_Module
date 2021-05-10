@@ -31,6 +31,7 @@ def output3():
     # serve index template
     return render_template('nodepanel.html')
     
+    
 @app.route('/_results/')
 def output4():
     # serve index template
