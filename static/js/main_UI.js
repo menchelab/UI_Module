@@ -197,7 +197,8 @@ $(document).ready(function () {
             max: 255,
             value: 128,
             slide: function (event, ui) {
-                ue4("SetScale", ui.value);
+                var scale = {"scale":ui.value}
+                ue4("SetScale",scale);
             }
         });
 
