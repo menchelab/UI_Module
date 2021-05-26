@@ -2,7 +2,7 @@ from flask import request, jsonify, render_template
 import requests
 import sys
 import time
-from flask import Flask, render_template, request, redirect, Response
+from flask import Flask, render_template, request, redirect, Response, send_file, url_for
 import random, json
 from os import listdir
 from os.path import isfile, join
@@ -15,6 +15,7 @@ app = Flask(__name__)
 def output():
     # serve index template
     return render_template('main.html')
+
     
 @app.route('/_side/')
 def output1():
@@ -43,6 +44,12 @@ def swimmer():
     return render_template('upload.html')
 
 
+
+@app.route('/maps/<filename>/')
+def get_image(filename):
+	# https://stackoverflow.com/questions/53202636/render-dynamically-changing-images-with-same-filenames-in-flask
+	print('display_image filename: ' + filename)
+	return redirect(url_for('static', filename='maps/' + filename), code=301)
 
 @app.route("/print", methods=['GET', 'POST'])
 
