@@ -514,8 +514,10 @@ var dbdata;
 var thisNamespace;
 
 ue.interface.setNamespace = function (data) {
-    logger(data.namespace);
+    //input = JSON.parse(data);
+    
     thisNamespace = data;
+    logger(thisNamespace);
 
 };
 //// Functions that POST to UE4 //////
@@ -706,10 +708,12 @@ function GetDbNodeList1(name, channel) {
         success: function (response) {
             if (channel == "A") {
                 ue4("LoadDbNodeList", response);
+                var globe = {"name":name};
+                ue4("ShowGlobe", globe);
             } else if (channel == "B") {
                 ue4("LoadDbNodeListB", response);
             }
-            logger(response);
+            //logger(response);
             GetDbLabelList1(name, channel);
             
             $('#spinner_load').hide("drop", {
