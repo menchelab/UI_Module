@@ -706,6 +706,7 @@ function GetDbNodeList1(name, channel) {
         },
         dataType: "json",
         success: function (response) {
+            logger(response);
             if (channel == "A") {
                 ue4("LoadDbNodeList", response);
                 var globe = {"name":name};
@@ -765,7 +766,7 @@ function GetDbLinkList1() {
             $('#spinner_load').hide("drop", {
                 direction: "down"
             }, "fast");
-            ///logger(response);
+            logger(response);
             //$('#projects-section').show();
         },
         error: function (err) {
